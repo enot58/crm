@@ -1,5 +1,20 @@
 import React from 'react';
-import {Button, Col, Container, FloatingLabel, Form, Nav, Row, Tab, Tabs, Toast, ToastContainer} from "react-bootstrap";
+import {
+    Button,
+    Col,
+    Container,
+    FloatingLabel,
+    Form,
+    InputGroup,
+    Nav,
+    Row,
+    Tab,
+    Tabs,
+    Toast,
+    ToastContainer
+} from "react-bootstrap";
+import { BsFillPlusSquareFill } from "react-icons/bs"
+
 
 const OneOrderPage = () => {
     return (
@@ -51,7 +66,53 @@ const OneOrderPage = () => {
 
                     </Tab>
                     <Tab eventKey="profile" title="Менеджер">
-                        2
+                        <Row>
+                            <Col>
+                                <Form.Select aria-label="Default select example">
+                                    <option>Выбор типа оборудования</option>
+                                    <option value="1">Канализация</option>
+                                    <option selected="true" value="2">Отопление</option>
+                                    <option value="3">Вентиляция</option>
+                                </Form.Select>
+                            </Col>
+                            <Col>
+                                <Form.Select aria-label="Default select example">
+                                    <option>Выбор объекта</option>
+                                    <option value="1">Застава</option>
+                                    <option selected="true" value="2">Лугометрия</option>
+                                    <option value="3">Континент</option>
+                                </Form.Select>
+                            </Col>
+                            <Col>
+
+                            </Col>
+                        </Row>
+                        <Row className="mt-3" style={{border: "1px solid grey", borderRadius: 20, maxHeight: "60vh"}}>
+                            <Row className="mt-1" style={{maxHeight: "5vh"}}>
+                                <Col>
+                                    <BsFillPlusSquareFill color="green"/>
+                                </Col>
+                            </Row>
+                            <Row className="mb-3">
+                                <Form.Group as={Col} controlId="formGridCity">
+                                    <Form.Label>City</Form.Label>
+                                    <Form.Control />
+                                </Form.Group>
+
+                                <Form.Group as={Col} controlId="formGridState">
+                                    <Form.Label>State</Form.Label>
+                                    <Form.Select defaultValue="Choose...">
+                                        <option>Choose...</option>
+                                        <option>...</option>
+                                    </Form.Select>
+                                </Form.Group>
+
+                                <Form.Group as={Col} controlId="formGridZip">
+                                    <Form.Label>Zip</Form.Label>
+                                    <Form.Control />
+                                </Form.Group>
+                            </Row>
+                        </Row>
                     </Tab>
                     <Tab eventKey="contact" title="Водитель">
                         3
@@ -61,26 +122,6 @@ const OneOrderPage = () => {
                     </Tab>
                 </Tabs>
             </Row>
-            {/*<Row className="justify-content-end">
-                <ToastContainer position="bottom-end">
-                    <Toast>
-                        <Toast.Header>
-                            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                            <strong className="me-auto">Bootstrap</strong>
-                            <small className="text-muted">just now</small>
-                        </Toast.Header>
-                        <Toast.Body>See? Just like this.</Toast.Body>
-                    </Toast>
-                    <Toast>
-                        <Toast.Header>
-                            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                            <strong className="me-auto">Bootstrap</strong>
-                            <small className="text-muted">2 seconds ago</small>
-                        </Toast.Header>
-                        <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
-                    </Toast>
-                </ToastContainer>
-            </Row>*/}
         </Container>
     );
 };

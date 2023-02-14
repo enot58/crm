@@ -1,7 +1,10 @@
 import React from 'react';
 import {Badge, Button, Card, Col, Row} from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 const Order = () => {
+    let id = 3
     return (
        <Row className="mt-3">
            <Card>
@@ -22,11 +25,12 @@ const Order = () => {
                    </Row>
                </Card.Header>
                <Card.Body>
-                   <Card.Title>Special title treatment</Card.Title>
+                   <Card.Title>Заявка тудым сюдым</Card.Title>
                    <Card.Text>
-                       With supporting text below as a natural lead-in to additional content.
+                       Здесь её текст
                    </Card.Text>
-                   <Button variant="primary">Go somewhere</Button>
+                   <Link to={id}>Перейти</Link>
+
                </Card.Body>
            </Card>
        </Row>
