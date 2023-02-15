@@ -3,7 +3,7 @@ import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const MyNavBar = () => {
-    const role = 'admin'
+    const role = 'master'
     const isAuth = true
 
     return (
@@ -21,9 +21,9 @@ const MyNavBar = () => {
                                     {
                                         role === 'manager' || role === "admin" ?
                                             <>
-                                                <NavLink style={{textDecoration: "none"}} to="newform"><Nav.Link href="newform">Сформировать</Nav.Link></NavLink>
+                                                <NavLink style={{textDecoration: "none"}} to="/newform"><Nav.Link href="newform">Сформировать</Nav.Link></NavLink>
 
-                                                <NavLink style={{textDecoration: "none"}} to="formgroup"><Nav.Link href="formgroup">Группа заявок</Nav.Link></NavLink>
+                                                <NavLink style={{textDecoration: "none"}} to="/formgroup"><Nav.Link href="formgroup">Группа заявок</Nav.Link></NavLink>
                                             </>
 
                                             :
@@ -31,9 +31,9 @@ const MyNavBar = () => {
                                     }
 
                                     <NavLink style={{textDecoration: "none"}} to="allorders"><Nav.Link href="/allorders">Все заявки</Nav.Link></NavLink>
+                                    <NavLink style={{textDecoration: "none"}} to="/catalog"><Nav.Link href="/catalog">Каталог</Nav.Link></NavLink>
+                                    <NavLink style={{textDecoration: "none"}} to="/warehouse"><Nav.Link href="/warehouse">Склады</Nav.Link></NavLink>
 
-                                    <Nav.Link href="#link">Каталог</Nav.Link>
-                                    <Nav.Link href="#link">Склады</Nav.Link>
                                     {
                                         role === 'admin' ?
                                             <NavDropdown title="Админ" id="basic-nav-dropdown">

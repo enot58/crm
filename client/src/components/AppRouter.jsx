@@ -14,15 +14,30 @@ const AppRouter = () => {
         <Routes>
             {
                 isAuth ?
-                    <Route>
 
-                        <Route path="/"  element={< Layout />}>
-                            <Route path="/" element={< HomePage />}/>
-                            <Route path="/:id" element={<OneOrderPage />}/>
+
+                    <Route path="/"  element={< Layout />}>
+                        <Route index path="/" element={< HomePage />}/>
+                        <Route path="/:id" element={<OneOrderPage />}/>
+
+                        <Route path="/newform">
+
+                        </Route>
+                        <Route path="/allorders">
+
+                        </Route>
+                        <Route path="/catalog">
+
+                        </Route>
+                        <Route path="/warehouse">
+
                         </Route>
 
-
                     </Route>
+
+
+
+
                     :
                     <Route>
                         <Route path="/" element={< Auth /> }/>

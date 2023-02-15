@@ -13,14 +13,11 @@ const Order = () => {
                        <Col>
                            Заявка №1
                        </Col>
-                       <Col>
+                       <Col sm={"auto"}>
                            Мастер №1
                            <Badge bg="success">
                                Secondary
                            </Badge>
-                       </Col>
-                       <Col>
-
                        </Col>
                    </Row>
                </Card.Header>
@@ -29,7 +26,7 @@ const Order = () => {
                    <Card.Text>
                        Здесь её текст
                    </Card.Text>
-                   <Link to={id}>Перейти</Link>
+                   <Link to={`/${id}`}>Перейти</Link>
 
                </Card.Body>
            </Card>
