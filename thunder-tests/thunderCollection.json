@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "colName": " crm",
+    "created": "2023-04-08T20:18:03.765Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "f39de73d-182c-4d14-a19a-5b302bb4bd02",
+        "name": "user",
+        "containerId": "",
+        "created": "2023-04-08T20:18:28.602Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "b69ec234-3501-410f-8fe0-d15d91eaecea",
+        "name": "role",
+        "containerId": "",
+        "created": "2023-04-08T20:18:35.654Z",
+        "sortNum": 30000
+      }
+    ]
+  }
+]

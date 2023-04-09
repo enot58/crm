@@ -1,0 +1,102 @@
+[
+  {
+    "_id": "1f11c50e-123e-4485-beec-aaba403ae71f",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "b69ec234-3501-410f-8fe0-d15d91eaecea",
+    "name": "CreateRole",
+    "url": "localhost:5000/roles",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-08T20:40:12.379Z",
+    "modified": "2023-04-09T08:26:53.535Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"USER\",\n  \"description\": \"Пользователь\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "6dc3d552-65bb-499b-aaea-78e5511d3dff",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "b69ec234-3501-410f-8fe0-d15d91eaecea",
+    "name": "FindAll",
+    "url": "localhost:5000/roles/1",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-08T20:52:26.818Z",
+    "modified": "2023-04-09T08:28:32.057Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "53060119-d8eb-465a-963a-5faca3e0080d",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "b69ec234-3501-410f-8fe0-d15d91eaecea",
+    "name": "Del",
+    "url": "localhost:5000/roles/1",
+    "method": "DELETE",
+    "sortNum": 30000,
+    "created": "2023-04-08T20:54:21.814Z",
+    "modified": "2023-04-09T08:04:19.183Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "85094f14-efcb-416d-84e1-44b9ffb510f6",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "b69ec234-3501-410f-8fe0-d15d91eaecea",
+    "name": "FindOne",
+    "url": "localhost:5000/roles/name/?name=admin",
+    "method": "GET",
+    "sortNum": 25000,
+    "created": "2023-04-08T20:55:30.239Z",
+    "modified": "2023-04-09T08:30:16.779Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "name",
+        "value": "admin",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "141e7f40-d584-421c-b4e8-fedb7a08c5d9",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "f39de73d-182c-4d14-a19a-5b302bb4bd02",
+    "name": "createUser",
+    "url": "localhost:5000/users",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-04-09T10:17:03.469Z",
+    "modified": "2023-04-09T10:40:06.282Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"login\": \"user\",\n  \"password\": \"user\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f163bbe9-f6f4-4393-bdc4-b5a47aa58384",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "f39de73d-182c-4d14-a19a-5b302bb4bd02",
+    "name": "GetAllUsers",
+    "url": "localhost:5000/users",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-04-09T18:54:35.779Z",
+    "modified": "2023-04-09T18:54:44.029Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
