@@ -9,3 +9,5 @@
 
 /server/developmentJob.env
 /server/productionJob.env
+/server/developmentHome.env
+/server/productionHome.env
