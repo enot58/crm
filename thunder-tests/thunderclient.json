@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-04-08T20:40:12.379Z",
-    "modified": "2023-04-09T08:26:53.535Z",
+    "modified": "2023-04-17T06:37:18.450Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"USER\",\n  \"description\": \"Пользователь\"\n}",
+      "raw": "{\n  \"name\": \"admin\",\n  \"description\": \"Пользователь\"\n}",
       "form": []
     },
     "tests": []
@@ -23,13 +23,17 @@
     "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
     "containerId": "b69ec234-3501-410f-8fe0-d15d91eaecea",
     "name": "FindAll",
-    "url": "localhost:5000/roles/1",
+    "url": "localhost:5000/roles/",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-08T20:52:26.818Z",
-    "modified": "2023-04-09T08:28:32.057Z",
+    "modified": "2023-04-17T12:49:55.357Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDY6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMTI6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6Nywicm9sZUlkIjoyLCJ1c2VySWQiOjd9fV0sImlhdCI6MTY4MTczNTc1OSwiZXhwIjoxNjgxNzcxNzU5fQ.I1HnBBekQGk-k-mjD-6niamIA-bJZVBKYeGfosG9aF0"
+    },
     "tests": []
   },
   {
@@ -51,19 +55,13 @@
     "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
     "containerId": "b69ec234-3501-410f-8fe0-d15d91eaecea",
     "name": "FindOne",
-    "url": "localhost:5000/roles/name/?name=admin",
+    "url": "localhost:5000/roles/findByName/user",
     "method": "GET",
     "sortNum": 25000,
     "created": "2023-04-08T20:55:30.239Z",
-    "modified": "2023-04-09T08:30:16.779Z",
+    "modified": "2023-04-17T06:40:08.890Z",
     "headers": [],
-    "params": [
-      {
-        "name": "name",
-        "value": "admin",
-        "isPath": false
-      }
-    ],
+    "params": [],
     "tests": []
   },
   {
@@ -75,12 +73,12 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-04-09T10:17:03.469Z",
-    "modified": "2023-04-09T10:40:06.282Z",
+    "modified": "2023-04-17T12:39:54.441Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"login\": \"user\",\n  \"password\": \"user\"\n}",
+      "raw": "{\n  \"login\": \"admin\",\n  \"password\": \"admin\"\n}",
       "form": []
     },
     "tests": []
@@ -94,9 +92,90 @@
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-04-09T18:54:35.779Z",
-    "modified": "2023-04-09T18:54:44.029Z",
+    "modified": "2023-04-17T13:05:10.542Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InVzZXIiLCJpZCI6NSwicm9sZXMiOlt7ImlkIjoxLCJuYW1lIjoidXNlciIsImRlc2NyaXB0aW9uIjoi0J_QvtC70YzQt9C-0LLQsNGC0LXQu9GMIiwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xN1QwNjozNzoxNC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xN1QwNjozNzoxNC4wMDBaIiwiVXNlclJvbGVzIjp7ImlkIjo1LCJyb2xlSWQiOjEsInVzZXJJZCI6NX19XSwiaWF0IjoxNjgxNzI2OTQwLCJleHAiOjE2ODE3NjI5NDB9.albCLtd7PIBsKyMCpmx_9bTXfJFQ2qOUwgdIDe-CJmQ",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDY6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMTI6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6Nywicm9sZUlkIjoyLCJ1c2VySWQiOjd9fV0sImlhdCI6MTY4MTczNjY3MCwiZXhwIjoxNjgxNzcyNjcwfQ.8K7ukQvQQXCFALgTakYWQKBQEIX2tseiEEsQBteJlx8"
+    },
+    "tests": []
+  },
+  {
+    "_id": "81eab2f8-6454-4bfa-9e26-f27b64a8c0e1",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "f39de73d-182c-4d14-a19a-5b302bb4bd02",
+    "name": "FindByLogin",
+    "url": "localhost:5000/users/findByLogin/user",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-04-17T07:36:33.259Z",
+    "modified": "2023-04-17T08:45:08.199Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "74faa300-e3b3-471d-bff0-9d0404d1f9e6",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "e72b5936-2a6a-41d8-ac49-be7d659a9a7a",
+    "name": "Registration",
+    "url": "localhost:5000/auth/registration",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-17T07:52:22.233Z",
+    "modified": "2023-04-17T12:41:06.979Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"login\": \"admin\",\n  \"password\": \"admin\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "62f212f8-ba53-470f-9246-f20bd7267b53",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "e72b5936-2a6a-41d8-ac49-be7d659a9a7a",
+    "name": "Login",
+    "url": "localhost:5000/auth/login",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-17T08:55:56.427Z",
+    "modified": "2023-04-17T12:40:25.867Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"login\": \"admin\",\n  \"password\": \"admin\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "aae32b3a-12dd-4169-a69e-d183a15dd25a",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "b69ec234-3501-410f-8fe0-d15d91eaecea",
+    "name": "UpdateRole",
+    "url": "localhost:5000/roles/2",
+    "method": "PUT",
+    "sortNum": 15000,
+    "created": "2023-04-17T12:48:18.701Z",
+    "modified": "2023-04-17T12:49:14.435Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"admin\",\n  \"description\": \"Администратор\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

@@ -888,6 +888,10 @@
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="880" y="1160" as="sourcePoint"/>
                         <mxPoint x="980" y="1060" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1010" y="1125"/>
+                            <mxPoint x="1010" y="1055"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="123" value="objects" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" vertex="1" parent="1">
@@ -1026,7 +1030,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="155" value="provider" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" vertex="1" parent="1">
-                    <mxGeometry x="890" y="2070" width="180" height="150" as="geometry"/>
+                    <mxGeometry x="1290" y="2190" width="180" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="156" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" vertex="1" parent="155">
                     <mxGeometry y="30" width="180" height="30" as="geometry"/>

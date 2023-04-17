@@ -4,6 +4,7 @@ import { User } from './user.model';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateUserDto } from './dto/create-user.dto';
 import { RolesService } from 'src/roles/roles.service';
+import { Role } from 'src/roles/roles.model';
 
 @Injectable()
 export class UsersService {
@@ -11,10 +12,10 @@ export class UsersService {
     @InjectModel(User) private userRepository: typeof User,
     private rolesService: RolesService,
   ) {}
-
+  // Создаём пользователя
   async createUser(dto: CreateUserDto) {
     try {
-      const role = await this.rolesService.findRoleByName('user');
+      const role = await this.rolesService.findRoleByName('admin');
       if (!role) {
         throw new HttpException(
           'Роли с таким наименование не существует',
@@ -23,6 +24,9 @@ export class UsersService {
       }
       const [user, created] = await this.userRepository.findOrCreate({
         where: { login: dto.login },
+        defaults: {
+          password: dto.password,
+        },
       });
       if (!created) {
         throw new HttpException(
@@ -33,6 +37,7 @@ export class UsersService {
       //const user = await this.userRepository.create(dto);
 
       await user.$set('roles', [role.id]);
+      user.roles = [role];
 
       return { user };
     } catch (e) {
@@ -46,14 +51,33 @@ export class UsersService {
       }
     }
   }
-
+  // Получить всех пользователей
   async getAllUsers() {
     const users = await this.userRepository.findAll({ include: { all: true } });
     return users;
   }
-
+  // Получить одного пользователя по id
   async findUserOneById(id: number) {
     const user = await this.userRepository.findByPk(id);
     return user;
+  }
+
+  async findUserByLogin(login: string) {
+    try {
+      const user = await this.userRepository.findOne({
+        where: { login },
+        include: [{ model: Role }],
+      });
+      return user;
+    } catch (e) {
+      if (e instanceof HttpException) {
+        throw e;
+      } else {
+        throw new HttpException(
+          e.message || 'Произошла ошибка',
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
+    }
   }
 }
