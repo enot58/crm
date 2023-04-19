@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+import { AddRoleDto } from './dto/add_role.dto';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { User } from './user.model';
 import { InjectModel } from '@nestjs/sequelize';
@@ -60,6 +60,35 @@ export class UsersService {
   async findUserOneById(id: number) {
     const user = await this.userRepository.findByPk(id);
     return user;
+  }
+  // Добавить роль пользователю
+  async addRoleToUser(dto: AddRoleDto) {
+    const { id, name } = dto;
+    const user = await this.userRepository.findByPk(id);
+    const role = await this.rolesService.findRoleByName(name);
+    if (user && role) {
+      await user.$add('roles', role);
+      return user;
+    }
+    throw new HttpException(
+      'Пользователь или роль не существует',
+      HttpStatus.NOT_FOUND,
+    );
+  }
+
+  // Удалить роль пользователю
+  async delRoleToUser(dto: AddRoleDto) {
+    const { id, name } = dto;
+    const user = await this.userRepository.findByPk(id);
+    const role = await this.rolesService.findRoleByName(name);
+    if (user && role) {
+      await user.$remove('roles', role);
+      return user;
+    }
+    throw new HttpException(
+      'Пользователь или роль не существует',
+      HttpStatus.NOT_FOUND,
+    );
   }
 
   async findUserByLogin(login: string) {

@@ -1,3 +1,4 @@
+import { AddRoleDto } from './dto/add_role.dto';
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Param, UseGuards } from '@nestjs/common/decorators';
 import { ApiOperation } from '@nestjs/swagger/dist';
@@ -20,6 +21,24 @@ export class UsersController {
   create(@Body() userDto: CreateUserDto) {
     console.log(userDto);
     return this.userService.createUser(userDto);
+  }
+
+  @ApiOperation({ summary: 'Выдать роль' })
+  @ApiResponse({ status: 200, type: [User] })
+  @Roles('admin')
+  @UseGuards(RolesGuard)
+  @Post('/role')
+  addRole(@Body() dto: AddRoleDto) {
+    return this.userService.addRoleToUser(dto);
+  }
+
+  @ApiOperation({ summary: 'Удалить роль' })
+  @ApiResponse({ status: 200, type: [User] })
+  @Roles('admin')
+  @UseGuards(RolesGuard)
+  @Post('/delRole')
+  delRole(@Body() dto: AddRoleDto) {
+    return this.userService.delRoleToUser(dto);
   }
 
   @ApiOperation({ summary: 'Получить всех пользователей' })
