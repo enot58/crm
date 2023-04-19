@@ -1,3 +1,4 @@
+import { UserDescription } from './../user-description/user-description.model';
 /* eslint-disable prettier/prettier */
 import { ApiProperty } from '@nestjs/swagger/dist/decorators';
 import {
@@ -6,6 +7,7 @@ import {
   Model,
   DataType,
   BelongsToMany,
+  HasMany,
 } from 'sequelize-typescript';
 import { Role } from 'src/roles/roles.model';
 
@@ -36,4 +38,7 @@ export class User extends Model<User, UserCreationAttrs> {
 
   @BelongsToMany(() => Role, () => UserRoles)
   roles: Role[];
+
+  @HasMany(() => UserDescription)
+  userDescriptions: UserDescription[];
 }
