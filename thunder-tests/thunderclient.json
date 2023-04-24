@@ -27,12 +27,12 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-08T20:52:26.818Z",
-    "modified": "2023-04-17T12:49:55.357Z",
+    "modified": "2023-04-24T10:59:17.449Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDY6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMTI6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6Nywicm9sZUlkIjoyLCJ1c2VySWQiOjd9fV0sImlhdCI6MTY4MTczNTc1OSwiZXhwIjoxNjgxNzcxNzU5fQ.I1HnBBekQGk-k-mjD-6niamIA-bJZVBKYeGfosG9aF0"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDY6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMTI6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6MTAsInJvbGVJZCI6MiwidXNlcklkIjo3fX1dLCJpYXQiOjE2ODIzMzM1NzYsImV4cCI6MTY4MjM2OTU3Nn0.bIuOXylOEC78ionTTlnvgRuCrHD4JnZlLyBrh321U60"
     },
     "tests": []
   },
@@ -92,7 +92,7 @@
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-04-09T18:54:35.779Z",
-    "modified": "2023-04-19T12:04:52.889Z",
+    "modified": "2023-04-24T10:53:06.251Z",
     "headers": [
       {
         "name": "Authorization",
@@ -103,7 +103,7 @@
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDY6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMTI6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6Nywicm9sZUlkIjoyLCJ1c2VySWQiOjd9fV0sImlhdCI6MTY4MTkwNTY1OSwiZXhwIjoxNjgxOTQxNjU5fQ.9Fpo4fnAm7L3k5zX3TBFF0GLtlWtagijDg0GCLg6VGc"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDY6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMTI6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6MTAsInJvbGVJZCI6MiwidXNlcklkIjo3fX1dLCJpYXQiOjE2ODIzMzM1NzYsImV4cCI6MTY4MjM2OTU3Nn0.bIuOXylOEC78ionTTlnvgRuCrHD4JnZlLyBrh321U60"
     },
     "tests": []
   },
@@ -221,6 +221,56 @@
     "auth": {
       "type": "bearer",
       "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDY6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMTI6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6Nywicm9sZUlkIjoyLCJ1c2VySWQiOjd9fV0sImlhdCI6MTY4MTkwNTY1OSwiZXhwIjoxNjgxOTQxNjU5fQ.9Fpo4fnAm7L3k5zX3TBFF0GLtlWtagijDg0GCLg6VGc"
+    },
+    "tests": []
+  },
+  {
+    "_id": "ad80e431-9885-4a17-9672-fab84b01b960",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "1f594db4-43d1-4d27-8a53-ff9a9b28c4e3",
+    "name": "createDescription",
+    "url": "localhost:5000/user-description",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2023-04-24T10:32:57.184Z",
+    "modified": "2023-04-24T11:36:55.618Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "name",
+          "value": "Иван"
+        },
+        {
+          "name": "lastName",
+          "value": "Иванов"
+        },
+        {
+          "name": "post",
+          "value": "Мастер"
+        },
+        {
+          "name": "email",
+          "value": "email@email.ru"
+        },
+        {
+          "name": "userId",
+          "value": "5"
+        }
+      ],
+      "files": [
+        {
+          "name": "img",
+          "value": "c:\\Users\\Roman\\Downloads\\olimp-penza-jk-284752811-6.jpg"
+        }
+      ]
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDY6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMTI6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6MTAsInJvbGVJZCI6MiwidXNlcklkIjo3fX1dLCJpYXQiOjE2ODIzMzM1NzYsImV4cCI6MTY4MjM2OTU3Nn0.bIuOXylOEC78ionTTlnvgRuCrHD4JnZlLyBrh321U60"
     },
     "tests": []
   }

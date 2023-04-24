@@ -14,7 +14,7 @@ export class UserDescriptionController {
   @ApiResponse({ status: 201, type: UserDescription })
   @ApiResponse({ status: 404, description: 'Ошибка валидации' })
   @Post()
-  @UseInterceptors(FileInterceptor('image'))
+  @UseInterceptors(FileInterceptor('img'))
   create(@Body() dto: CreateUserDescriptionDto, @UploadedFile() image) {
     return this.userDescriptionService.createUserDescription(dto, image);
   }

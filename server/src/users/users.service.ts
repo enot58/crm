@@ -53,7 +53,9 @@ export class UsersService {
   }
   // Получить всех пользователей
   async getAllUsers() {
-    const users = await this.userRepository.findAll({ include: { all: true } });
+    const users = await this.userRepository.findAll({
+      include: { model: Role },
+    });
     return users;
   }
   // Получить одного пользователя по id
