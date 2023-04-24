@@ -1,6 +1,6 @@
 import { FilesModule } from './../files/files.module';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Module, forwardRef } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { UserDescriptionService } from './user-description.service';
 import { UserDescriptionController } from './user-description.controller';
 import { User } from 'src/users/user.model';

@@ -70,5 +70,4 @@ export class UserDescriptionController {
   ) {
     return this.userDescriptionService.updateUserDescription(id, dto, image);
   }
-  )
 }

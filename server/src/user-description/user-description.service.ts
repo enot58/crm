@@ -40,7 +40,7 @@ export class UserDescriptionService {
     }
 
     if (userDescription && image) {
-      const fileName = await this.fileService.deleteFile(image);
+      await this.fileService.deleteFile(image);
     }
 
     return userDescription;
