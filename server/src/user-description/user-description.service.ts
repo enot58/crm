@@ -28,13 +28,21 @@ export class UserDescriptionService {
 
   async findUserDescriptionOneById(id: number) {
     const userDescription = await this.userDescriptionRepository.findByPk(id);
+
     return userDescription;
   }
 
   async deleteUserDescription(id: number) {
-    const userDescription = await this.userDescriptionRepository.destroy({
-      where: { id },
-    });
+    const userDescription = await this.userDescriptionRepository.findByPk(id);
+    const { image } = userDescription.dataValues;
+    if (userDescription) {
+      await userDescription.destroy();
+    }
+
+    if (userDescription && image) {
+      const fileName = await this.fileService.deleteFile(image);
+    }
+
     return userDescription;
   }
 
