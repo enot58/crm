@@ -46,14 +46,22 @@ export class UserDescriptionService {
     return userDescription;
   }
 
-  async updateUserDescription(id: number, dto: CreateUserDescriptionDto) {
+  async updateUserDescription(
+    id: number,
+    dto: CreateUserDescriptionDto,
+    image: string,
+  ) {
     const userDescription = await this.userDescriptionRepository.findByPk(id);
     userDescription.name = dto.name;
     userDescription.lastName = dto.lastName;
-    userDescription.image = dto.image;
+    userDescription.image = image;
     userDescription.post = dto.post;
     userDescription.email = dto.email;
-    await userDescription.save();
+
+    await userDescription.save().then(() => {
+      this.fileService.deleteFile(userDescription.image);
+    });
+
     return userDescription;
   }
 

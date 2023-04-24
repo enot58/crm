@@ -59,7 +59,6 @@ export class UserDescriptionController {
   @ApiOperation({ summary: 'Обновление описания пользователя' })
   @ApiResponse({ status: 200, type: UserDescription })
   @ApiResponse({ status: 404, description: 'Ошибка валидации' })
-  @Roles('admin')
   @UseGuards(RolesGuard)
   @Post(':id')
   @UseInterceptors(FileInterceptor('img'))
