@@ -4,8 +4,8 @@ import {
   Model,
   Column,
   DataType,
-  HasOne,
   BelongsTo,
+  ForeignKey,
 } from 'sequelize-typescript';
 import { User } from 'src/users/user.model';
 
@@ -43,10 +43,18 @@ export class UserDescription extends Model<
   @Column({ type: DataType.STRING, allowNull: true })
   image?: string;
 
+  @ApiProperty({ example: 'Должность', description: 'Должность Пользователя' })
+  @Column({ type: DataType.STRING, allowNull: true })
+  post?: string;
+
   @ApiProperty({ example: 'email@email.ru', description: 'Почта Пользователя' })
   @Column({ type: DataType.STRING, allowNull: true })
   email?: string;
 
+  @ForeignKey(() => User)
+  @Column({ type: DataType.INTEGER })
+  userId: number;
+
   @BelongsTo(() => User)
-  userId: User;
+  user: User;
 }

@@ -7,7 +7,7 @@ import {
   Model,
   DataType,
   BelongsToMany,
-  HasMany,
+  HasOne,
 } from 'sequelize-typescript';
 import { Role } from 'src/roles/roles.model';
 
@@ -39,6 +39,6 @@ export class User extends Model<User, UserCreationAttrs> {
   @BelongsToMany(() => Role, () => UserRoles)
   roles: Role[];
 
-  @HasMany(() => UserDescription)
+  @HasOne(() => UserDescription)
   userDescriptions: UserDescription[];
 }
