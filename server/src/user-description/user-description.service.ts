@@ -51,15 +51,23 @@ export class UserDescriptionService {
     dto: CreateUserDescriptionDto,
     image: string,
   ) {
+    // Создаём файл
+    const fileName = await this.fileService.createFile(image);
+    // Получаем информацию
     const userDescription = await this.userDescriptionRepository.findByPk(id);
+    const oldImg = userDescription.image;
+
+    console.log(`Старый ${oldImg}`);
     userDescription.name = dto.name;
     userDescription.lastName = dto.lastName;
-    userDescription.image = image;
+    // Здесь меняем наименование
+    userDescription.image = fileName;
     userDescription.post = dto.post;
     userDescription.email = dto.email;
 
     await userDescription.save().then(() => {
-      this.fileService.deleteFile(userDescription.image);
+      // Удаляем старый файл
+      this.fileService.deleteFile(oldImg);
     });
 
     return userDescription;

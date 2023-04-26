@@ -8,6 +8,7 @@ import { UserDescriptionService } from './user-description.service';
 import {
   Delete,
   Param,
+  Put,
   UploadedFile,
   UseGuards,
 } from '@nestjs/common/decorators';
@@ -60,7 +61,7 @@ export class UserDescriptionController {
   @ApiResponse({ status: 200, type: UserDescription })
   @ApiResponse({ status: 404, description: 'Ошибка валидации' })
   @UseGuards(RolesGuard)
-  @Post(':id')
+  @Put(':id')
   @UseInterceptors(FileInterceptor('img'))
   update(
     @Param('id') id: number,

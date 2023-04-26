@@ -25,17 +25,21 @@ export class FilesService {
     }
   }
 
-  async deleteFile(file: any): Promise<void> {
+  async deleteFile(file: any): Promise<{ message: string; status: number }> {
     // Проверяем что файл существует
     const filePath = path.resolve(__dirname, '..', 'static', file);
+
+    console.log(fs.existsSync(filePath));
     if (fs.existsSync(filePath)) {
       // Удаляем файл
       fs.unlinkSync(filePath);
-      throw new HttpException('Файл удален', HttpStatus.OK);
+      return { message: 'Файл удален', status: HttpStatus.OK };
     }
-    // Если файл не существует, то выбрасываем ошибку
-    if (!fs.existsSync(filePath)) {
-      throw new HttpException('Файл не найден', HttpStatus.NOT_FOUND);
-    }
+
+    return { message: 'Файл не найден', status: HttpStatus.NOT_FOUND };
+    // // Если файл не существует, то выбрасываем ошибку
+    // if (!fs.existsSync(filePath)) {
+    //   throw new HttpException('Файл не найден', HttpStatus.NOT_FOUND);
+    // }
   }
 }
