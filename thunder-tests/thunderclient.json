@@ -363,5 +363,38 @@
       ]
     },
     "tests": []
+  },
+  {
+    "_id": "b7daad50-d632-4eed-bd69-c7a9846de9bc",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "d5b17bd1-6076-408f-ba4c-c265d3dca51a",
+    "name": "createWarehouse",
+    "url": "localhost:5000/warehouse",
+    "method": "POST",
+    "sortNum": 110000,
+    "created": "2023-04-26T11:08:06.055Z",
+    "modified": "2023-04-26T11:45:17.309Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Главный\",\n  \"address\": \"г.Пенза ул.Контейнерова\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "42c3a8bf-d435-47df-8ab8-2d5cd788ae15",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "d5b17bd1-6076-408f-ba4c-c265d3dca51a",
+    "name": "getAllWarhouse",
+    "url": "localhost:5000/warehouse",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-04-26T11:08:22.000Z",
+    "modified": "2023-04-26T11:51:05.704Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

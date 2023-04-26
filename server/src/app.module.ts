@@ -2,7 +2,6 @@ import { UserDescription } from './user-description/user-description.model';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { UserRoles } from './roles/user-role.model';
@@ -13,6 +12,8 @@ import { UserDescriptionModule } from './user-description/user-description.modul
 import { FilesModule } from './files/files.module';
 import * as path from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { WarehouseModule } from './warehouse/warehouse.module';
+import { Warehouse } from './warehouse/warehouse.model';
 
 @Module({
   imports: [
@@ -29,9 +30,10 @@ import { ServeStaticModule } from '@nestjs/serve-static';
       username: process.env.MYSQL_USERNAME,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DATABASE,
-      models: [UserRoles, User, Role, UserDescription],
+      models: [UserRoles, User, Role, UserDescription, Warehouse],
       autoLoadModels: true,
     }),
+    WarehouseModule,
     UsersModule,
     RolesModule,
     AuthModule,
