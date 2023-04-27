@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Column, Model, Table, DataType } from 'sequelize-typescript';
 
-export interface ObjectsBuildingCreationAttr {
+interface ObjectsBuildingCreationAttr {
   name: string;
   address: string;
 }

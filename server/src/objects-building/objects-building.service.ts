@@ -57,7 +57,7 @@ export class ObjectsBuildingService {
       if (!objectBuilding) {
         throw new HttpException('Объект не найден', HttpStatus.NOT_FOUND);
       }
-      console.log(objectBuilding.dataValues);
+
       objectBuilding.name = dto.name ? dto.name : objectBuilding.name;
       objectBuilding.address = dto.address
         ? dto.address
