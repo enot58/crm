@@ -16,6 +16,8 @@ import { WarehouseModule } from './warehouse/warehouse.module';
 import { Warehouse } from './warehouse/warehouse.model';
 import { ObjectsBuildingModule } from './objects-building/objects-building.module';
 import { StockResidueModule } from './stock-residue/stock-residue.module';
+import { TransportCompanyModule } from './transport-company/transport-company.module';
+import { ProviderModule } from './provider/provider.module';
 
 @Module({
   imports: [
@@ -43,6 +45,8 @@ import { StockResidueModule } from './stock-residue/stock-residue.module';
     FilesModule,
     ObjectsBuildingModule,
     StockResidueModule,
+    TransportCompanyModule,
+    ProviderModule,
   ],
 
   controllers: [],

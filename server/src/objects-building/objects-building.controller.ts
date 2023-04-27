@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { ObjectsBuildingService } from './objects-building.service';
 import { ObjectsBuilding } from './objects-building.model';
+import { CreateObjectsDescriptionDto } from './dto/create-objects-building.dto';
 
 @ApiTags('Объекты')
 @Controller('objects-building')
@@ -44,7 +45,7 @@ export class ObjectsBuildingController {
   @ApiResponse({ status: 200, type: ObjectsBuilding })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @Put(':id')
-  update(@Param('id') id: number, @Body() dto: ObjectsBuilding) {
+  update(@Param('id') id: number, @Body() dto: CreateObjectsDescriptionDto) {
     return this.objectsBuildingService.updateObjectsBuilding(id, dto);
   }
 
