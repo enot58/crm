@@ -14,6 +14,8 @@ import * as path from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { WarehouseModule } from './warehouse/warehouse.module';
 import { Warehouse } from './warehouse/warehouse.model';
+import { ObjectsBuildingModule } from './objects-building/objects-building.module';
+import { StockResidueModule } from './stock-residue/stock-residue.module';
 
 @Module({
   imports: [
@@ -39,6 +41,8 @@ import { Warehouse } from './warehouse/warehouse.model';
     AuthModule,
     UserDescriptionModule,
     FilesModule,
+    ObjectsBuildingModule,
+    StockResidueModule,
   ],
 
   controllers: [],

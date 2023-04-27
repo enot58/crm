@@ -33,4 +33,34 @@ export class WarehouseService {
       throw new NotFoundException(e.message || 'Произошла ошибка');
     }
   }
+
+  // Получаем склад по id
+  async findWarehouseOneById(id: number) {
+    try {
+      const warehouse = await this.warehouseRepository.findByPk(id);
+      if (!warehouse) {
+        throw new HttpException('Склад не найден', HttpStatus.NOT_FOUND);
+      }
+      return warehouse;
+    } catch (e) {
+      throw new NotFoundException(e.message || 'Произошла ошибка');
+    }
+  }
+
+  // Редактируем склад
+  async updateWarehouse(id: number, dto: CreateWarehouseDto) {
+    try {
+      const warehouse = await this.warehouseRepository.findByPk(id);
+      if (!warehouse) {
+        throw new HttpException('Склад не найден', HttpStatus.NOT_FOUND);
+      }
+      warehouse.name = dto.name;
+      warehouse.address = dto.address;
+
+      await warehouse.save();
+      return warehouse;
+    } catch (e) {
+      throw new NotFoundException(e.message || 'Произошла ошибка');
+    }
+  }
 }

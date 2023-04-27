@@ -1,14 +1,16 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { Column, Model, Table, DataType } from 'sequelize-typescript';
 
-export interface WarehouseCreationAttr {
+export interface ObjectsBuildingCreationAttr {
   name: string;
   address: string;
 }
 
-// Склад
-@Table({ tableName: 'warehouse' })
-export class Warehouse extends Model<Warehouse, WarehouseCreationAttr> {
+@Table({ tableName: 'objects_building' })
+export class ObjectsBuilding extends Model<
+  ObjectsBuilding,
+  ObjectsBuildingCreationAttr
+> {
   @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
   @Column({
     type: DataType.INTEGER,
@@ -17,12 +19,10 @@ export class Warehouse extends Model<Warehouse, WarehouseCreationAttr> {
     autoIncrement: true,
   })
   id: number;
-
-  @ApiProperty({ example: 'Главный', description: 'Название склада' })
+  @ApiProperty({ example: 'Лугометрия', description: 'Название объекта' })
   @Column({ type: DataType.STRING, allowNull: false })
   name: string;
-
-  @ApiProperty({ example: 'Москва', description: 'Адрес склада' })
+  @ApiProperty({ example: 'Москва', description: 'Адрес объекта' })
   @Column({ type: DataType.STRING, allowNull: false })
   address: string;
 }
