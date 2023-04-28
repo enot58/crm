@@ -18,6 +18,8 @@ import { ObjectsBuildingModule } from './objects-building/objects-building.modul
 import { StockResidueModule } from './stock-residue/stock-residue.module';
 import { TransportCompanyModule } from './transport-company/transport-company.module';
 import { ProviderModule } from './provider/provider.module';
+import { CategoryModule } from './category/category.module';
+import { TypeModule } from './type/type.module';
 
 @Module({
   imports: [
@@ -47,6 +49,8 @@ import { ProviderModule } from './provider/provider.module';
     StockResidueModule,
     TransportCompanyModule,
     ProviderModule,
+    CategoryModule,
+    TypeModule,
   ],
 
   controllers: [],

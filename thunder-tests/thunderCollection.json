@@ -60,6 +60,20 @@
         "containerId": "",
         "created": "2023-04-27T13:25:57.764Z",
         "sortNum": 90000
+      },
+      {
+        "_id": "c3483aca-3423-4d59-b459-8af68737d07d",
+        "name": "type",
+        "containerId": "",
+        "created": "2023-04-28T06:57:51.027Z",
+        "sortNum": 100000
+      },
+      {
+        "_id": "db1685e1-2500-4adc-91a6-0d3713d04753",
+        "name": "category",
+        "containerId": "",
+        "created": "2023-04-28T08:41:08.981Z",
+        "sortNum": 110000
       }
     ]
   }
