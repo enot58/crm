@@ -71,6 +71,7 @@ export class CategoryService {
   // Ищем по наименованию категорию
   async findCategoryByName(name: string) {
     try {
+      console.log(name);
       const category = await this.categoryRepository.findOne({
         where: { name },
       });

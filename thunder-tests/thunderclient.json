@@ -839,12 +839,32 @@
     "method": "GET",
     "sortNum": 315000,
     "created": "2023-04-28T10:22:07.822Z",
-    "modified": "2023-04-28T10:39:05.054Z",
+    "modified": "2023-04-28T11:12:53.531Z",
     "headers": [],
     "params": [
       {
         "name": "name",
         "value": "Краны",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "d66ac049-5d6a-4e8d-9315-038e37ff64e4",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "c3483aca-3423-4d59-b459-8af68737d07d",
+    "name": "getOneByName",
+    "url": "localhost:5000/type/byName/?name=Водоснабжение",
+    "method": "GET",
+    "sortNum": 305000,
+    "created": "2023-04-28T11:04:19.431Z",
+    "modified": "2023-04-28T11:13:04.945Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "name",
+        "value": "Водоснабжение",
         "isPath": false
       }
     ],

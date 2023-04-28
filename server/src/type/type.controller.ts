@@ -11,6 +11,7 @@ import {
   Put,
   Delete,
   Param,
+  Query,
 } from '@nestjs/common';
 import { Type } from './type.model';
 import { CreateTypeDto } from './dto/type.dto';
@@ -32,6 +33,17 @@ export class TypeController {
   @Post()
   create(@Body() dto: CreateTypeDto) {
     return this.typeService.createType(dto);
+  }
+
+  @ApiOperation({ summary: 'Получение типа по наименованию' })
+  @ApiResponse({ status: HttpStatus.OK, type: Type })
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND,
+    description: 'Ошибка валидации',
+  })
+  @Get('/byName')
+  getTypeByName(@Query('name') name: string) {
+    return this.typeService.findByName(name);
   }
 
   @ApiOperation({ summary: 'Получение всех типов' })

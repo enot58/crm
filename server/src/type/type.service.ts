@@ -65,4 +65,17 @@ export class TypeService {
       throw new NotFoundException(e.message || 'Произошла ошибка');
     }
   }
+
+  // Выполняем поиск по наименованию
+  async findByName(name: string) {
+    try {
+      const type = await this.typeRepository.findOne({ where: { name } });
+      if (!type) {
+        throw new NotFoundException('Тип не найден');
+      }
+      return type;
+    } catch (e) {
+      throw new NotFoundException(e.message || 'Произошла ошибка');
+    }
+  }
 }
