@@ -774,11 +774,11 @@
     "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
     "containerId": "db1685e1-2500-4adc-91a6-0d3713d04753",
     "name": "getAll",
-    "url": "localhost:5000/category",
+    "url": "localhost:5000/category/",
     "method": "GET",
     "sortNum": 300000,
     "created": "2023-04-28T08:41:08.982Z",
-    "modified": "2023-04-28T09:10:33.692Z",
+    "modified": "2023-04-28T10:38:50.298Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -828,6 +828,26 @@
     "modified": "2023-04-28T09:11:42.162Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f0bf91c7-4510-4ce9-9327-dcc54d77ff3d",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "db1685e1-2500-4adc-91a6-0d3713d04753",
+    "name": "getOneByName",
+    "url": "localhost:5000/category/byName/?name=Краны",
+    "method": "GET",
+    "sortNum": 315000,
+    "created": "2023-04-28T10:22:07.822Z",
+    "modified": "2023-04-28T10:39:05.054Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "name",
+        "value": "Краны",
+        "isPath": false
+      }
+    ],
     "tests": []
   }
 ]

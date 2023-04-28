@@ -2,7 +2,7 @@ import { CreateCategoryDto } from './dto/category.dto';
 import { Category } from './category.model';
 
 import { NotFoundException } from '@nestjs/common/exceptions';
-import { Injectable, HttpStatus } from '@nestjs/common';
+import { Injectable, HttpStatus, HttpException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 
 @Injectable()
@@ -31,7 +31,7 @@ export class CategoryService {
     try {
       const category = await this.categoryRepository.findByPk(id);
       if (!category) {
-        throw new NotFoundException('Категория не найдена');
+        throw new HttpException('Категория не найдена', HttpStatus.NOT_FOUND);
       }
       return category;
     } catch (e) {
@@ -44,7 +44,7 @@ export class CategoryService {
     try {
       const category = await this.categoryRepository.findByPk(id);
       if (!category) {
-        throw new NotFoundException('Категория не найдена');
+        throw new HttpException('Категория не найдена', HttpStatus.NOT_FOUND);
       }
       category.name = dto.name;
       await category.save();
@@ -59,9 +59,25 @@ export class CategoryService {
     try {
       const category = await this.categoryRepository.findByPk(id);
       if (!category) {
-        throw new NotFoundException('Категория не найдена');
+        throw new HttpException('Категория не найдена', HttpStatus.NOT_FOUND);
       }
       await category.destroy();
+      return category;
+    } catch (e) {
+      throw new NotFoundException(e.message || 'Произошла ошибка');
+    }
+  }
+
+  // Ищем по наименованию категорию
+  async findCategoryByName(name: string) {
+    try {
+      console.log(name);
+      const category = await this.categoryRepository.findOne({
+        where: { name },
+      });
+      if (!category) {
+        throw new HttpException('Категория не найдена', HttpStatus.NOT_FOUND);
+      }
       return category;
     } catch (e) {
       throw new NotFoundException(e.message || 'Произошла ошибка');

@@ -11,6 +11,7 @@ import {
   Put,
   Delete,
   Param,
+  Query,
 } from '@nestjs/common';
 import { RolesGuard } from 'src/auth/roles.guards';
 import { CategoryService } from './category.service';
@@ -32,6 +33,17 @@ export class CategoryController {
   @Post()
   create(@Body() dto: CreateCategoryDto) {
     return this.categoryService.createCategory(dto);
+  }
+
+  @ApiOperation({ summary: 'Поиск категории по наименованию' })
+  @ApiResponse({ status: HttpStatus.OK, type: Category })
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND,
+    description: 'Не найдена',
+  })
+  @Get('/byName')
+  findByName(@Query('name') name: string) {
+    return this.categoryService.findCategoryByName(name);
   }
 
   @ApiOperation({ summary: 'Получение всех типов' })
