@@ -24,7 +24,7 @@ export class UsersController {
   }
 
   @ApiOperation({ summary: 'Выдать роль' })
-  @ApiResponse({ status: 200, type: [User] })
+  @ApiResponse({ status: 200, type: User })
   @Roles('admin')
   @UseGuards(RolesGuard)
   @Post('/role')

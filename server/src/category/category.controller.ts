@@ -16,6 +16,8 @@ import {
 import { RolesGuard } from 'src/auth/roles.guards';
 import { CategoryService } from './category.service';
 import { Category } from './category.model';
+import { AddCategoryDto } from 'src/type/dto/add_category.dto';
+import { AddTypeDto } from './dto/add_type.dto';
 
 @ApiTags('Категории для оборудования')
 @Controller('category')
@@ -96,5 +98,29 @@ export class CategoryController {
   @Delete(':id')
   deleteTypeById(@Param('id') id: number) {
     return this.categoryService.deleteCategory(id);
+  }
+
+  @ApiOperation({ summary: 'Добавление типа для категории' })
+  @ApiResponse({ status: HttpStatus.OK, type: Category })
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND,
+    description: 'Ошибка валидации',
+  })
+  //   @Roles('admin')
+  //   @UseGuards(RolesGuard)
+  @Post('/typeToCategory')
+  addTypeToCategory(@Body() dto: AddTypeDto) {
+    return this.categoryService.addCategory(dto);
+  }
+
+  @ApiOperation({ summary: 'Удаление типа для категории' })
+  @ApiResponse({ status: HttpStatus.OK, type: Category })
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND,
+    description: 'Ошибка валидации',
+  })
+  @Post('/deleteTypeToCategory')
+  deleteTypeToCategory(@Body() dto: AddTypeDto) {
+    return this.categoryService.deleteCategoryFromType(dto);
   }
 }

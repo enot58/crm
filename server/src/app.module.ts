@@ -20,6 +20,10 @@ import { TransportCompanyModule } from './transport-company/transport-company.mo
 import { ProviderModule } from './provider/provider.module';
 import { CategoryModule } from './category/category.module';
 import { TypeModule } from './type/type.module';
+import { Category } from './category/category.model';
+import { Type } from './type/type.model';
+import { TypeCategory } from './category/type-category.model';
+import { Provider } from './provider/provider.model';
 
 @Module({
   imports: [
@@ -36,8 +40,9 @@ import { TypeModule } from './type/type.module';
       username: process.env.MYSQL_USERNAME,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DATABASE,
-      models: [UserRoles, User, Role, UserDescription, Warehouse],
+      models: [],
       autoLoadModels: true,
+      synchronize: true,
     }),
     WarehouseModule,
     UsersModule,

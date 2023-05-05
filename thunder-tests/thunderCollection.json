@@ -74,6 +74,13 @@
         "containerId": "",
         "created": "2023-04-28T08:41:08.981Z",
         "sortNum": 110000
+      },
+      {
+        "_id": "7c77dffb-7e41-49a0-93ae-b3710f1e6026",
+        "name": "typeCategory",
+        "containerId": "",
+        "created": "2023-05-05T06:16:41.768Z",
+        "sortNum": 120000
       }
     ]
   }

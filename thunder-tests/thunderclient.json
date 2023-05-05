@@ -788,11 +788,11 @@
     "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
     "containerId": "db1685e1-2500-4adc-91a6-0d3713d04753",
     "name": "getOne",
-    "url": "localhost:5000/category/2",
+    "url": "localhost:5000/category/1",
     "method": "GET",
     "sortNum": 310000,
     "created": "2023-04-28T08:41:08.983Z",
-    "modified": "2023-04-28T09:10:43.580Z",
+    "modified": "2023-05-05T09:50:56.901Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -868,6 +868,82 @@
         "isPath": false
       }
     ],
+    "tests": []
+  },
+  {
+    "_id": "4f16a46a-0cbf-49f6-890d-f64bc2dd1a94",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "7c77dffb-7e41-49a0-93ae-b3710f1e6026",
+    "name": "addCategoryToType",
+    "url": "localhost:5000/type/categoryToType",
+    "method": "POST",
+    "sortNum": 340000,
+    "created": "2023-05-05T07:52:46.230Z",
+    "modified": "2023-05-05T09:29:05.070Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": 2,\n  \"name\": \"Краны\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4e5bc650-fa0e-407b-b62a-03732adb810f",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "7c77dffb-7e41-49a0-93ae-b3710f1e6026",
+    "name": "addTypeToCategory",
+    "url": "localhost:5000/category/typeToCategory",
+    "method": "POST",
+    "sortNum": 350000,
+    "created": "2023-05-05T08:39:44.214Z",
+    "modified": "2023-05-05T09:16:52.361Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": 1,\n  \"name\": \"Водоснабжение\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "46d1bfc9-0ec2-469b-9405-e47e3398f9f3",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "7c77dffb-7e41-49a0-93ae-b3710f1e6026",
+    "name": "DelCategoryToType Copy",
+    "url": "localhost:5000/type/delCategoryToType",
+    "method": "POST",
+    "sortNum": 345000,
+    "created": "2023-05-05T10:54:34.416Z",
+    "modified": "2023-05-05T11:47:25.793Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": 2,\n  \"name\": \"Краны\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3f62800f-87ba-4ce8-90b6-ccd3248dcb2c",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "7c77dffb-7e41-49a0-93ae-b3710f1e6026",
+    "name": "DelTypeToCategory Copy",
+    "url": "localhost:5000/category/deleteTypeToCategory",
+    "method": "POST",
+    "sortNum": 360000,
+    "created": "2023-05-05T10:54:36.841Z",
+    "modified": "2023-05-05T11:52:49.994Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": 1,\n  \"name\": \"Водоснабжение\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

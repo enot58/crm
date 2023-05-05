@@ -16,11 +16,25 @@ import {
 import { Type } from './type.model';
 import { CreateTypeDto } from './dto/type.dto';
 import { RolesGuard } from 'src/auth/roles.guards';
+import { AddCategoryDto } from './dto/add_category.dto';
 
 @ApiTags('Типы для оборудования')
 @Controller('type')
 export class TypeController {
   constructor(private typeService: TypeService) {}
+
+  @ApiOperation({ summary: 'Получение всех типов' })
+  @ApiResponse({ status: HttpStatus.OK, type: [Type] })
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND,
+    description: 'Ошибка валидации',
+  })
+  //   @Roles('admin')
+  //   @UseGuards(RolesGuard)
+  @Get()
+  getAll() {
+    return this.typeService.getAllTypes();
+  }
 
   @ApiOperation({ summary: 'Создание типа для оборудования' })
   @ApiResponse({ status: HttpStatus.CREATED, type: Type })
@@ -46,17 +60,26 @@ export class TypeController {
     return this.typeService.findByName(name);
   }
 
-  @ApiOperation({ summary: 'Получение всех типов' })
-  @ApiResponse({ status: HttpStatus.OK, type: [Type] })
+  @ApiOperation({ summary: 'Добавить категорию в тип' })
+  @ApiResponse({ status: HttpStatus.OK, type: Type })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
-    description: 'Ошибка валидации',
+    description: 'Тип или категория не найдены',
   })
-  //   @Roles('admin')
-  //   @UseGuards(RolesGuard)
-  @Get()
-  getAll() {
-    return this.typeService.getAllTypes();
+  @Post('/categoryToType')
+  addCategory(@Body() dto: AddCategoryDto) {
+    return this.typeService.addCategoryToType(dto);
+  }
+
+  @ApiOperation({ summary: 'Удалить категорию из типа' })
+  @ApiResponse({ status: HttpStatus.OK, type: Type })
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND,
+    description: 'Тип или категория не найдены',
+  })
+  @Post('/delCategoryToType')
+  deleteCategory(@Body() dto: AddCategoryDto) {
+    return this.typeService.deleteCategoryFromType(dto);
   }
 
   @ApiOperation({ summary: 'Получение типа по id' })

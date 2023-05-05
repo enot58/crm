@@ -1,14 +1,20 @@
 import { TypeCategory } from './../category/type-category.model';
 import { Category } from './../category/category.model';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { TypeController } from './type.controller';
 import { TypeService } from './type.service';
 import { Type } from './type.model';
+import { CategoryModule } from 'src/category/category.module';
+import { CategoryService } from 'src/category/category.service';
 
 @Module({
+  imports: [
+    SequelizeModule.forFeature([Type, Category, TypeCategory]),
+    forwardRef(() => CategoryModule),
+  ],
   controllers: [TypeController],
   providers: [TypeService],
-  imports: [SequelizeModule.forFeature([Type, Category, TypeCategory])],
+  exports: [TypeService],
 })
 export class TypeModule {}

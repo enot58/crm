@@ -4,11 +4,15 @@ import { Category } from './category.model';
 import { NotFoundException } from '@nestjs/common/exceptions';
 import { Injectable, HttpStatus, HttpException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
+import { TypeService } from 'src/type/type.service';
+import { AddTypeDto } from './dto/add_type.dto';
 
 @Injectable()
 export class CategoryService {
   constructor(
-    @InjectModel(Category) private categoryRepository: typeof Category,
+    @InjectModel(Category)
+    private categoryRepository: typeof Category,
+    private typeService: TypeService,
   ) {}
 
   // Создаём тип
@@ -20,7 +24,9 @@ export class CategoryService {
   // Получаем все типы
   async getAllCategories() {
     try {
-      const category = await this.categoryRepository.findAll();
+      const category = await this.categoryRepository.findAll({
+        include: { all: true },
+      });
       return category;
     } catch (e) {
       throw new NotFoundException(e.message || 'Произошла ошибка');
@@ -29,7 +35,9 @@ export class CategoryService {
   // Получаем тип по id
   async getCategoryById(id: number) {
     try {
-      const category = await this.categoryRepository.findByPk(id);
+      const category = await this.categoryRepository.findByPk(id, {
+        include: { all: true },
+      });
       if (!category) {
         throw new HttpException('Категория не найдена', HttpStatus.NOT_FOUND);
       }
@@ -71,7 +79,6 @@ export class CategoryService {
   // Ищем по наименованию категорию
   async findCategoryByName(name: string) {
     try {
-      console.log(name);
       const category = await this.categoryRepository.findOne({
         where: { name },
       });
@@ -79,6 +86,44 @@ export class CategoryService {
         throw new HttpException('Категория не найдена', HttpStatus.NOT_FOUND);
       }
       return category;
+    } catch (e) {
+      throw new NotFoundException(e.message || 'Произошла ошибка');
+    }
+  }
+
+  //Добавить категорию в тип оборудования
+  async addCategory(dto: AddTypeDto) {
+    try {
+      const { id: categoryId, name: typeName } = dto;
+      const category = await this.getCategoryById(categoryId);
+      const type = await this.typeService.findByName(typeName);
+      if (category && type) {
+        await category.$add('types', type);
+        return category;
+      }
+      throw new HttpException(
+        'Пользователь или роль не существует',
+        HttpStatus.NOT_FOUND,
+      );
+    } catch (e) {
+      throw new NotFoundException(e.message || 'Произошла ошибка');
+    }
+  }
+
+  //Удалить категорию из типа оборудования
+  async deleteCategoryFromType(dto: AddTypeDto) {
+    try {
+      const { id: categoryId, name: typeName } = dto;
+      const category = await this.getCategoryById(categoryId);
+      const type = await this.typeService.findByName(typeName);
+      if (category && type) {
+        await category.$remove('type', type);
+        return category;
+      }
+      throw new HttpException(
+        'Пользователь или роль не существует',
+        HttpStatus.NOT_FOUND,
+      );
     } catch (e) {
       throw new NotFoundException(e.message || 'Произошла ошибка');
     }

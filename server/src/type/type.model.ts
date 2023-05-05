@@ -1,4 +1,12 @@
-import { Model, Table, Column, DataType } from 'sequelize-typescript';
+import {
+  Model,
+  Table,
+  Column,
+  DataType,
+  BelongsToMany,
+} from 'sequelize-typescript';
+import { Category } from 'src/category/category.model';
+import { TypeCategory } from 'src/category/type-category.model';
 
 interface TypeCreationAttrs {
   name: string;
@@ -20,4 +28,7 @@ export class Type extends Model<Type, TypeCreationAttrs> {
     allowNull: false,
   })
   name: string;
+
+  @BelongsToMany(() => Category, () => TypeCategory)
+  categories: Category[];
 }
