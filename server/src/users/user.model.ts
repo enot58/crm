@@ -10,7 +10,6 @@ import {
   HasOne,
 } from 'sequelize-typescript';
 import { Role } from 'src/roles/roles.model';
-
 import { UserRoles } from 'src/roles/user-role.model';
 
 interface UserCreationAttrs {

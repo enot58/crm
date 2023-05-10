@@ -6,11 +6,11 @@ import { Module, forwardRef } from '@nestjs/common';
 import { CategoryController } from './category.controller';
 import { CategoryService } from './category.service';
 import { TypeModule } from 'src/type/type.module';
-import { TypeService } from 'src/type/type.service';
+import { ProductName } from 'src/product-name/product-name.model';
 
 @Module({
   imports: [
-    SequelizeModule.forFeature([Category, Type, TypeCategory]),
+    SequelizeModule.forFeature([Category, Type, TypeCategory, ProductName]),
     forwardRef(() => TypeModule),
   ],
   providers: [CategoryService],

@@ -5,8 +5,10 @@ import {
   Column,
   DataType,
   BelongsToMany,
+  HasMany,
 } from 'sequelize-typescript';
 import { Type } from 'src/type/type.model';
+import { ProductName } from 'src/product-name/product-name.model';
 
 interface CategoryCreationAttrs {
   name: string;
@@ -31,4 +33,7 @@ export class Category extends Model<Category, CategoryCreationAttrs> {
 
   @BelongsToMany(() => Type, () => TypeCategory)
   type: Type[];
+
+  @HasMany(() => ProductName)
+  productNames: ProductName[];
 }
