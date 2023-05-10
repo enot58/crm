@@ -1,4 +1,4 @@
-import { DataType, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 interface PriceAttrs {
   value: number;
