@@ -373,12 +373,12 @@
     "method": "POST",
     "sortNum": 110000,
     "created": "2023-04-26T11:08:06.055Z",
-    "modified": "2023-04-27T05:18:02.348Z",
+    "modified": "2023-05-30T05:46:28.057Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Не главный\",\n  \"address\": \"г.Пенза ул.Контейнерова\"\n}",
+      "raw": "{\n  \"name\": \"Главный\",\n  \"address\": \"г.Пенза ул.Контейнерова\"\n}",
       "form": []
     },
     "tests": []
@@ -1002,12 +1002,12 @@
     "method": "PUT",
     "sortNum": 270000,
     "created": "2023-05-10T10:09:38.805Z",
-    "modified": "2023-05-10T11:39:32.061Z",
+    "modified": "2023-05-29T10:03:12.791Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"11Б27П\",\n  \"description\": \"Описание\",\n  \"categoryName\": \"Краны\"\n}",
+      "raw": "{\n  \"name\": \"11Б27П\",\n  \"description\": \"Описание\",\n  \"categoryName\": \"Краны\",\n  \"unitId\": 1,\n  \"warehouseId\": 1\n}",
       "form": []
     },
     "tests": []
@@ -1140,6 +1140,86 @@
     "sortNum": 230000,
     "created": "2023-05-10T13:15:54.351Z",
     "modified": "2023-05-10T13:25:03.222Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8c947397-be6b-4ba9-a98b-df0c9911b83f",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "eff9d61c-70bc-4118-96fb-7a06e8560eee",
+    "name": "create",
+    "url": "localhost:5000/price",
+    "method": "POST",
+    "sortNum": 190000,
+    "created": "2023-05-29T07:36:47.243Z",
+    "modified": "2023-05-30T07:57:03.601Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"value\": 12,\n  \"productNameId\": 1,\n  \"warehouseId\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "02edd0d9-2a32-4a06-ba24-65c2da5a5bf9",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "eff9d61c-70bc-4118-96fb-7a06e8560eee",
+    "name": "getAll",
+    "url": "localhost:5000/price",
+    "method": "GET",
+    "sortNum": 200000,
+    "created": "2023-05-29T07:36:47.244Z",
+    "modified": "2023-05-29T08:01:31.735Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "168b6e0c-e37e-4c2a-8b18-4a45aba77c9e",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "eff9d61c-70bc-4118-96fb-7a06e8560eee",
+    "name": "getById",
+    "url": "localhost:5000/unit/1",
+    "method": "GET",
+    "sortNum": 210000,
+    "created": "2023-05-29T07:36:47.245Z",
+    "modified": "2023-05-29T07:36:47.243Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8937dc00-a8ab-4304-8457-84b03d63c665",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "eff9d61c-70bc-4118-96fb-7a06e8560eee",
+    "name": "update",
+    "url": "localhost:5000/unit/1",
+    "method": "PUT",
+    "sortNum": 220000,
+    "created": "2023-05-29T07:36:47.246Z",
+    "modified": "2023-05-29T07:36:47.243Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Штуки\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "375d026b-7999-45b0-a422-226ff0024992",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "eff9d61c-70bc-4118-96fb-7a06e8560eee",
+    "name": "delById",
+    "url": "localhost:5000/unit/2",
+    "method": "DELETE",
+    "sortNum": 230000,
+    "created": "2023-05-29T07:36:47.247Z",
+    "modified": "2023-05-29T07:36:47.243Z",
     "headers": [],
     "params": [],
     "tests": []

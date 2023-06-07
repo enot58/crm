@@ -73,7 +73,9 @@ export class ProductNameService {
   // Получим все продукты
   async getAllProductNames(): Promise<ProductName[]> {
     try {
-      const productNames = await this.productNameRepository.findAll();
+      const productNames = await this.productNameRepository.findAll({
+        include: { all: true },
+      });
       return productNames;
     } catch (e) {
       console.error(e);

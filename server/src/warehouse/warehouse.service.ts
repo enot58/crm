@@ -24,7 +24,11 @@ export class WarehouseService {
   // Получаем все склады
   async getAllWarehouses() {
     try {
-      const warehouses = await this.warehouseRepository.findAll();
+      const warehouses = await this.warehouseRepository.findAll({
+        include: {
+          all: true,
+        },
+      });
       if (!warehouses) {
         throw new HttpException('Склады не найдены', HttpStatus.NOT_FOUND);
       }

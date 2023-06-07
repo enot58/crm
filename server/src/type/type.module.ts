@@ -6,7 +6,6 @@ import { TypeController } from './type.controller';
 import { TypeService } from './type.service';
 import { Type } from './type.model';
 import { CategoryModule } from 'src/category/category.module';
-import { CategoryService } from 'src/category/category.service';
 
 @Module({
   imports: [

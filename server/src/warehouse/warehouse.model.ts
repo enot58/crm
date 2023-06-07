@@ -1,5 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsToMany,
+  Column,
+  DataType,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Price } from 'src/price/price.model';
+import { ProductName } from 'src/product-name/product-name.model';
+import { StockResidue } from 'src/stock-residue/stock-residue.model';
 
 export interface WarehouseCreationAttr {
   name: string;
@@ -25,4 +34,7 @@ export class Warehouse extends Model<Warehouse, WarehouseCreationAttr> {
   @ApiProperty({ example: 'Москва', description: 'Адрес склада' })
   @Column({ type: DataType.STRING, allowNull: false })
   address: string;
+
+  @BelongsToMany(() => ProductName, () => StockResidue)
+  stockProductNames: ProductName[];
 }

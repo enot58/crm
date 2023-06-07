@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
   BelongsTo,
+  BelongsToMany,
   Column,
   DataType,
   ForeignKey,
@@ -8,7 +9,11 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { Category } from 'src/category/category.model';
+import { Price } from 'src/price/price.model';
+import { ProductPrice } from 'src/price/product-price.model';
+import { StockResidue } from 'src/stock-residue/stock-residue.model';
 import { Unit } from 'src/unit/unit.model';
+import { Warehouse } from 'src/warehouse/warehouse.model';
 
 export interface ProductNameAttributes {
   name: string;
@@ -47,4 +52,10 @@ export class ProductName extends Model<ProductName, ProductNameAttributes> {
   unitId: number;
   @BelongsTo(() => Unit)
   unit: Unit;
+
+  @BelongsToMany(() => Price, () => ProductPrice)
+  prices: Price[];
+
+  @BelongsToMany(() => Warehouse, () => StockResidue)
+  stockWarehouses: Warehouse[];
 }

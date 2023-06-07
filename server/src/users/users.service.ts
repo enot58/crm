@@ -69,7 +69,7 @@ export class UsersService {
     const user = await this.userRepository.findByPk(id);
     const role = await this.rolesService.findRoleByName(name);
     if (user && role) {
-      await user.$add('roles', role);
+      await user.$add<Role>('roles', role);
       return user;
     }
     throw new HttpException(
