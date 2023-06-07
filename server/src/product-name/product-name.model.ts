@@ -56,6 +56,6 @@ export class ProductName extends Model<ProductName, ProductNameAttributes> {
   @BelongsToMany(() => Price, () => ProductPrice)
   prices: Price[];
 
-  @BelongsToMany(() => Warehouse, () => StockResidue)
-  stockWarehouses: Warehouse[];
+  // @BelongsToMany(() => Warehouse, () => StockResidue)
+  // stockWarehouses: Warehouse[];
 }

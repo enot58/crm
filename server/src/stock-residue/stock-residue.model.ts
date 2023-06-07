@@ -6,6 +6,7 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
+import { ProductPrice } from 'src/price/product-price.model';
 import { ProductName } from 'src/product-name/product-name.model';
 import { Warehouse } from 'src/warehouse/warehouse.model';
 
@@ -29,9 +30,9 @@ export class StockResidue extends Model<StockResidue, StockResidueAttributes> {
   @Column({ type: DataType.INTEGER, allowNull: true })
   amount: number;
 
-  @ForeignKey(() => ProductName)
+  @ForeignKey(() => ProductPrice)
   @Column({ type: DataType.INTEGER })
-  productId: number;
+  productPriceId: number;
 
   @ForeignKey(() => Warehouse)
   @Column({ type: DataType.INTEGER })

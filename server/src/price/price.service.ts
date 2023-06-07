@@ -28,12 +28,19 @@ export class PriceService {
   ) {}
   async createPrice(dto: CreatePriceDto) {
     try {
-      const { productNameId } = dto;
-      //
+      const { productNameId: id } = dto;
+      // Ищем товар
+      const product = await this.productNameService.getProductNameById(id);
+      if (!product) {
+        throw new HttpException('Товар не найден', HttpStatus.NOT_FOUND);
+      }
+      // Создаём цену
       const price = await this.priceRepository.create(dto);
       if (!price || price === undefined) {
         throw new HttpException('Произошла ошибка', HttpStatus.BAD_REQUEST);
       }
+      // Присваиваем цену товару
+      await product.$set('prices', price);
 
       return price;
     } catch (e) {
