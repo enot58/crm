@@ -1,4 +1,5 @@
 import {
+  BelongsTo,
   BelongsToMany,
   Column,
   DataType,
@@ -7,8 +8,8 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { ProductName } from 'src/product-name/product-name.model';
+import { StockResidue } from 'src/stock-residue/stock-residue.model';
 import { Warehouse } from 'src/warehouse/warehouse.model';
-import { ProductPrice } from './product-price.model';
 
 interface PriceAttrs {
   value: number;
@@ -30,6 +31,10 @@ export class Price extends Model<Price, PriceAttrs> {
   })
   value: number;
 
-  @BelongsToMany(() => ProductName, () => ProductPrice)
-  productNames: ProductName[];
+  @ForeignKey(() => ProductName)
+  @Column({ type: DataType.INTEGER })
+  productNameId: number;
+
+  @BelongsToMany(() => Warehouse, () => StockResidue)
+  warehouses: Warehouse[];
 }

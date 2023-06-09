@@ -7,7 +7,6 @@ import { Warehouse } from 'src/warehouse/warehouse.model';
 import { Price } from './price.model';
 import { WarehouseModule } from 'src/warehouse/warehouse.module';
 import { ProductNameModule } from 'src/product-name/product-name.module';
-import { ProductPrice } from './product-price.model';
 
 @Module({
   providers: [PriceService],
@@ -15,7 +14,7 @@ import { ProductPrice } from './product-price.model';
   imports: [
     WarehouseModule,
     ProductNameModule,
-    SequelizeModule.forFeature([ProductName, Warehouse, Price, ProductPrice]),
+    SequelizeModule.forFeature([ProductName, Warehouse, Price]),
   ],
 
   exports: [PriceService],

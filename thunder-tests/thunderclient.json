@@ -1153,12 +1153,12 @@
     "method": "POST",
     "sortNum": 190000,
     "created": "2023-05-29T07:36:47.243Z",
-    "modified": "2023-06-07T12:39:34.386Z",
+    "modified": "2023-06-08T07:45:51.994Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"value\": 100,\n  \"productNameId\": 1\n}",
+      "raw": "{\n  \"value\": 500,\n  \"productNameId\": 1\n}",
       "form": []
     },
     "tests": []
@@ -1220,6 +1220,86 @@
     "sortNum": 230000,
     "created": "2023-05-29T07:36:47.247Z",
     "modified": "2023-05-29T07:36:47.243Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "110e689e-4844-4df0-bc92-9c811c5e3c5c",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "3127b0ee-8539-4da8-a71e-7e5fc94561b2",
+    "name": "create",
+    "url": "localhost:5000/stock-residue",
+    "method": "POST",
+    "sortNum": 190000,
+    "created": "2023-06-08T06:54:24.754Z",
+    "modified": "2023-06-08T08:21:42.307Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"price\": 104,\n  \"amount\": 3,\n  \"productNameId\": 1,\n  \"warehouseId\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "0bdcdcb1-c788-4cea-8c7f-e34c589409c6",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "3127b0ee-8539-4da8-a71e-7e5fc94561b2",
+    "name": "getAll",
+    "url": "localhost:5000/stock-residue",
+    "method": "GET",
+    "sortNum": 200000,
+    "created": "2023-06-08T06:54:24.755Z",
+    "modified": "2023-06-08T08:30:02.843Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "0b243fe5-b0f2-4788-9778-313ac9cdee64",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "3127b0ee-8539-4da8-a71e-7e5fc94561b2",
+    "name": "getById",
+    "url": "localhost:5000/unit/1",
+    "method": "GET",
+    "sortNum": 210000,
+    "created": "2023-06-08T06:54:24.756Z",
+    "modified": "2023-06-08T06:54:24.754Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b19e6c38-fa4b-4e27-a96c-954ea0f4e273",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "3127b0ee-8539-4da8-a71e-7e5fc94561b2",
+    "name": "update",
+    "url": "localhost:5000/unit/1",
+    "method": "PUT",
+    "sortNum": 220000,
+    "created": "2023-06-08T06:54:24.757Z",
+    "modified": "2023-06-08T06:54:24.754Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Штуки\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "0fc8bebc-f349-4a93-98bd-a00cd3d009b1",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "3127b0ee-8539-4da8-a71e-7e5fc94561b2",
+    "name": "delById",
+    "url": "localhost:5000/unit/2",
+    "method": "DELETE",
+    "sortNum": 230000,
+    "created": "2023-06-08T06:54:24.758Z",
+    "modified": "2023-06-08T06:54:24.754Z",
     "headers": [],
     "params": [],
     "tests": []

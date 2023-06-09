@@ -5,12 +5,12 @@ import {
   Column,
   DataType,
   ForeignKey,
+  HasMany,
   Model,
   Table,
 } from 'sequelize-typescript';
 import { Category } from 'src/category/category.model';
 import { Price } from 'src/price/price.model';
-import { ProductPrice } from 'src/price/product-price.model';
 import { StockResidue } from 'src/stock-residue/stock-residue.model';
 import { Unit } from 'src/unit/unit.model';
 import { Warehouse } from 'src/warehouse/warehouse.model';
@@ -53,7 +53,7 @@ export class ProductName extends Model<ProductName, ProductNameAttributes> {
   @BelongsTo(() => Unit)
   unit: Unit;
 
-  @BelongsToMany(() => Price, () => ProductPrice)
+  @HasMany(() => Price)
   prices: Price[];
 
   // @BelongsToMany(() => Warehouse, () => StockResidue)

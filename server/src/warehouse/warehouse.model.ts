@@ -9,7 +9,6 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { Price } from 'src/price/price.model';
-import { ProductPrice } from 'src/price/product-price.model';
 import { ProductName } from 'src/product-name/product-name.model';
 import { StockResidue } from 'src/stock-residue/stock-residue.model';
 
@@ -31,13 +30,13 @@ export class Warehouse extends Model<Warehouse, WarehouseCreationAttr> {
   id: number;
 
   @ApiProperty({ example: 'Главный', description: 'Название склада' })
-  @Column({ type: DataType.STRING, allowNull: false })
+  @Column({ type: DataType.STRING, allowNull: false, unique: true })
   name: string;
 
   @ApiProperty({ example: 'Москва', description: 'Адрес склада' })
   @Column({ type: DataType.STRING, allowNull: false })
   address: string;
 
-  @BelongsToMany(() => ProductPrice, () => StockResidue)
-  stockProductNames: ProductPrice[];
+  @BelongsToMany(() => Price, () => StockResidue)
+  prices: Price[];
 }

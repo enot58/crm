@@ -5,7 +5,6 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { create } from 'domain';
 import { ProductName } from 'src/product-name/product-name.model';
 import { ProductNameService } from 'src/product-name/product-name.service';
 import { Warehouse } from 'src/warehouse/warehouse.model';
@@ -26,6 +25,8 @@ export class PriceService {
     private readonly warehouseService: WarehouseService,
     private readonly productNameService: ProductNameService,
   ) {}
+  // Принимает цену и товар
+  // Возвращает id созданной связи или ошибку
   async createPrice(dto: CreatePriceDto) {
     try {
       const { productNameId: id } = dto;
@@ -53,7 +54,9 @@ export class PriceService {
 
   async getAllPrices() {
     try {
-      const prices = await this.priceRepository.findAll();
+      const prices = await this.priceRepository.findAll({
+        include: { all: true },
+      });
       return prices;
     } catch (e) {
       throw new HttpException(

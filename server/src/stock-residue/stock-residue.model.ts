@@ -6,12 +6,13 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { ProductPrice } from 'src/price/product-price.model';
-import { ProductName } from 'src/product-name/product-name.model';
+import { Price } from 'src/price/price.model';
 import { Warehouse } from 'src/warehouse/warehouse.model';
 
 export interface StockResidueAttributes {
   amount: number;
+  priceId: number;
+  warehouseId: number;
 }
 @Table({ tableName: 'stock_residue' })
 export class StockResidue extends Model<StockResidue, StockResidueAttributes> {
@@ -30,9 +31,9 @@ export class StockResidue extends Model<StockResidue, StockResidueAttributes> {
   @Column({ type: DataType.INTEGER, allowNull: true })
   amount: number;
 
-  @ForeignKey(() => ProductPrice)
+  @ForeignKey(() => Price)
   @Column({ type: DataType.INTEGER })
-  productPriceId: number;
+  priceId: number;
 
   @ForeignKey(() => Warehouse)
   @Column({ type: DataType.INTEGER })
