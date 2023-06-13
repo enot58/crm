@@ -11,6 +11,7 @@ import {
 import { ObjectsBuildingService } from './objects-building.service';
 import { ObjectsBuilding } from './objects-building.model';
 import { CreateObjectsDescriptionDto } from './dto/create-objects-building.dto';
+import AssignWarehouseDto from './dto/assign-warehouse.dto';
 
 @ApiTags('Объекты')
 @Controller('objects-building')
@@ -55,5 +56,21 @@ export class ObjectsBuildingController {
   @Delete(':id')
   delete(@Param('id') id: number) {
     return this.objectsBuildingService.deleteObjectsBuilding(id);
+  }
+
+  @ApiOperation({ summary: 'Присваеваем объекту склад' })
+  @ApiResponse({ status: 200, type: ObjectsBuilding })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @Post(':id/assignWarehouse')
+  assignWarehouse(@Param('id') id: number, @Body() dto: AssignWarehouseDto) {
+    return this.objectsBuildingService.assignWarehouse(id, dto);
+  }
+
+  @ApiOperation({ summary: 'Изменяем склад' })
+  @ApiResponse({ status: 200, type: ObjectsBuilding })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @Put(':id/assignWarehouse')
+  updateWarehouse(@Param('id') id: number, @Body() dto: AssignWarehouseDto) {
+    return this.objectsBuildingService.changeWarehouse(id, dto);
   }
 }

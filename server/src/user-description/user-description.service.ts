@@ -57,7 +57,6 @@ export class UserDescriptionService {
     const userDescription = await this.userDescriptionRepository.findByPk(id);
     const oldImg = userDescription.image;
 
-    console.log(`Старый ${oldImg}`);
     userDescription.name = dto.name;
     userDescription.lastName = dto.lastName;
     // Здесь меняем наименование

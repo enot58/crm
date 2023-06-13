@@ -2,14 +2,14 @@ import { ApiProperty } from '@nestjs/swagger';
 
 import {
   BelongsToMany,
-  HasMany,
   Column,
   DataType,
   Model,
   Table,
 } from 'sequelize-typescript';
+import { ObjectsWarehouse } from 'src/objects-building/object-warehouse.model';
+import { ObjectsBuilding } from 'src/objects-building/objects-building.model';
 import { Price } from 'src/price/price.model';
-import { ProductName } from 'src/product-name/product-name.model';
 import { StockResidue } from 'src/stock-residue/stock-residue.model';
 
 export interface WarehouseCreationAttr {
@@ -39,4 +39,7 @@ export class Warehouse extends Model<Warehouse, WarehouseCreationAttr> {
 
   @BelongsToMany(() => Price, () => StockResidue)
   prices: Price[];
+
+  @BelongsToMany(() => ObjectsBuilding, () => ObjectsWarehouse)
+  objectsBuildings: ObjectsBuilding[];
 }

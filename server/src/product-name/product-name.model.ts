@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
   BelongsTo,
-  BelongsToMany,
   Column,
   DataType,
   ForeignKey,
@@ -11,9 +10,7 @@ import {
 } from 'sequelize-typescript';
 import { Category } from 'src/category/category.model';
 import { Price } from 'src/price/price.model';
-import { StockResidue } from 'src/stock-residue/stock-residue.model';
 import { Unit } from 'src/unit/unit.model';
-import { Warehouse } from 'src/warehouse/warehouse.model';
 
 export interface ProductNameAttributes {
   name: string;

@@ -18,6 +18,7 @@ import { TypeModule } from './type/type.module';
 import { ProductNameModule } from './product-name/product-name.module';
 import { UnitModule } from './unit/unit.module';
 import { PriceModule } from './price/price.module';
+import { ObjectsModule } from './objects/objects.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { PriceModule } from './price/price.module';
       username: process.env.MYSQL_USERNAME,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DATABASE,
+      timezone: '+03:00',
       models: [],
       autoLoadModels: true,
       synchronize: true,
@@ -53,6 +55,7 @@ import { PriceModule } from './price/price.module';
     ProductNameModule,
     UnitModule,
     PriceModule,
+    ObjectsModule,
   ],
 
   controllers: [],

@@ -1,5 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Model, Table, DataType } from 'sequelize-typescript';
+import {
+  Column,
+  Model,
+  Table,
+  DataType,
+  BelongsToMany,
+} from 'sequelize-typescript';
+import { Warehouse } from 'src/warehouse/warehouse.model';
+import { ObjectsWarehouse } from './object-warehouse.model';
 
 interface ObjectsBuildingCreationAttr {
   name: string;
@@ -25,4 +33,7 @@ export class ObjectsBuilding extends Model<
   @ApiProperty({ example: 'Москва', description: 'Адрес объекта' })
   @Column({ type: DataType.STRING, allowNull: false })
   address: string;
+
+  @BelongsToMany(() => Warehouse, () => ObjectsWarehouse)
+  warehouse: Warehouse[];
 }

@@ -7,12 +7,16 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateObjectsDescriptionDto } from './dto/create-objects-building.dto';
+import { Warehouse } from 'src/warehouse/warehouse.model';
+import AssignWarehouseDto from './dto/assign-warehouse.dto';
 
 @Injectable()
 export class ObjectsBuildingService {
   constructor(
     @InjectModel(ObjectsBuilding)
     private objectsBuildingRepository: typeof ObjectsBuilding,
+    @InjectModel(Warehouse)
+    private warehouseRepository: typeof Warehouse,
   ) {}
 
   // Создаём объект
@@ -28,7 +32,9 @@ export class ObjectsBuildingService {
   // Получаем все объекты
   async getAllObjectsBuilding() {
     try {
-      const objectsBuilding = await this.objectsBuildingRepository.findAll();
+      const objectsBuilding = await this.objectsBuildingRepository.findAll({
+        include: { all: true },
+      });
       if (!objectsBuilding) {
         throw new HttpException('Объекты не найдены', HttpStatus.NOT_FOUND);
       }
@@ -77,6 +83,42 @@ export class ObjectsBuildingService {
         throw new HttpException('Объект не найден', HttpStatus.NOT_FOUND);
       }
       await objectBuilding.destroy();
+      return objectBuilding;
+    } catch (e) {
+      throw new NotFoundException(e.message || 'Произошла ошибка');
+    }
+  }
+
+  // Присвоим склад для объекта
+  async assignWarehouse(id: number, dto: AssignWarehouseDto) {
+    try {
+      const objectBuilding = await this.objectsBuildingRepository.findByPk(id);
+      if (!objectBuilding) {
+        throw new HttpException('Объект не найден', HttpStatus.NOT_FOUND);
+      }
+      // Проверяем существование склада
+      const warehouse = await this.warehouseRepository.findByPk(
+        dto.warehouseId,
+      );
+      await objectBuilding.$set('warehouse', [warehouse.id]);
+      return objectBuilding;
+    } catch (e) {
+      throw new NotFoundException(e.message || 'Произошла ошибка');
+    }
+  }
+
+  // Изменям склад для объекта
+  async changeWarehouse(id: number, dto: AssignWarehouseDto) {
+    try {
+      const objectBuilding = await this.objectsBuildingRepository.findByPk(id);
+      if (!objectBuilding) {
+        throw new HttpException('Объект не найден', HttpStatus.NOT_FOUND);
+      }
+      // Проверяем существование склада
+      const warehouse = await this.warehouseRepository.findByPk(
+        dto.warehouseId,
+      );
+      await objectBuilding.$add('warehouse', dto.warehouseId);
       return objectBuilding;
     } catch (e) {
       throw new NotFoundException(e.message || 'Произошла ошибка');
