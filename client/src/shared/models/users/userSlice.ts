@@ -12,6 +12,7 @@ const initialState: IUserSlice = {
     isLoading: false,
     isError: false,
     token: null,
+    dataError: null,
 };
 
 export const userSlice = createSlice({
@@ -54,6 +55,7 @@ export const userSlice = createSlice({
                 state.isAuth = false;
                 localStorage.removeItem("token");
                 state.token = null;
+                state.dataError = action.payload;
             }
         );
         builder.addMatcher(
