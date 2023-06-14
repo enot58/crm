@@ -55,7 +55,8 @@ export const userSlice = createSlice({
                 state.isAuth = false;
                 localStorage.removeItem("token");
                 state.token = null;
-                state.dataError = action.payload;
+                state.dataError.data = action.payload.data;
+                state.dataError.status = action.payload.status;
             }
         );
         builder.addMatcher(

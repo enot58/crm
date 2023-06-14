@@ -1,10 +1,12 @@
 import IUser from "./IUser";
 
+interface IMessage {
+    message: string;
+}
+
 interface IDataError {
     status: number;
-    data: {
-        message: string;
-    };
+    data: IMessage;
 }
 
 // Интерфейс для сосздания слайса
