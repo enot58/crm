@@ -1,7 +1,12 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards, Req, Get } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { AuthService } from './auth.service';
+import { JwtAuthGuard } from './jwt-auth.guard';
+
+interface RequestWithUser extends Request {
+  user: any;
+}
 
 ApiTags('Авторизация');
 @Controller('auth')
@@ -20,5 +25,13 @@ export class AuthController {
   @Post('/registration')
   registration(@Body() userDto: CreateUserDto) {
     return this.authService.registration(userDto);
+  }
+
+  @ApiOperation({ summary: 'Проверка авторизации' })
+  @ApiResponse({ status: 200 })
+  @UseGuards(JwtAuthGuard)
+  @Get('/check')
+  checkAuth(@Req() req: RequestWithUser) {
+    return this.authService.checkAuth(req.user);
   }
 }

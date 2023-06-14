@@ -7,7 +7,7 @@ import { LoadingVariant } from "../../shared/config";
 import { authApi, useLoginMutation } from "../../shared/api";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
-
+import { useAppSelector } from "../../shared/hooks";
 const useLogin = () => {
     const [login, setLogin] = useState("");
     const loginProps: IInputStringProps = {
@@ -36,22 +36,30 @@ const AuthWidget: React.FC = () => {
     const location = useLocation();
     const [login, loginProps] = useLogin();
     const [password, passwordProps] = usePassword();
-
+    const { isError, dataError } = useAppSelector((store) => store.user);
     const userData = {
         login,
         password,
     };
-
-    const [loginMutation, { isLoading, isError }] = useLoginMutation();
-    const { isLoading: isCheckLoading, data } = authApi.useCheckQuery();
+    const { status } = dataError;
+    const [loginMutation, { isLoading }] = useLoginMutation();
+    const {
+        isLoading: isCheckLoading,
+        data,
+        isError: isCheckError,
+    } = authApi.useCheckQuery();
 
     const handleSubmit = (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
-        const login = loginMutation(userData);
-        if (login) {
-            navigate(location.state?.from || "/", { replace: true });
+        try {
+            const login = loginMutation(userData);
+            if (login) {
+                navigate(location.state?.from || "/", { replace: true });
+            }
+        } catch (e) {
+            console.error(e);
         }
     };
 

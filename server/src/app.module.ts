@@ -40,6 +40,7 @@ import { ObjectsModule } from './objects/objects.module';
       autoLoadModels: true,
       synchronize: true,
     }),
+
     WarehouseModule,
     UsersModule,
     RolesModule,

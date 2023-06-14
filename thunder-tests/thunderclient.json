@@ -145,16 +145,16 @@
     "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
     "containerId": "e72b5936-2a6a-41d8-ac49-be7d659a9a7a",
     "name": "Login",
-    "url": "localhost:5000/auth/login",
+    "url": "http://192.168.3.16:5000/auth/login",
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-04-17T08:55:56.427Z",
-    "modified": "2023-04-17T12:40:25.867Z",
+    "modified": "2023-06-14T13:44:55.015Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"login\": \"admin\",\n  \"password\": \"admin\"\n}",
+      "raw": "{\n  \"login\": \"admin\",\n  \"password\": \"admi\"\n}",
       "form": []
     },
     "tests": []
@@ -1302,6 +1302,24 @@
     "modified": "2023-06-08T06:54:24.754Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "31e5194b-74c3-461d-ae56-a168eb611cc3",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "e72b5936-2a6a-41d8-ac49-be7d659a9a7a",
+    "name": "check",
+    "url": "http://192.168.3.16:5000/auth/check",
+    "method": "GET",
+    "sortNum": 370000,
+    "created": "2023-06-14T13:03:06.164Z",
+    "modified": "2023-06-14T13:15:04.824Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDM6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMDk6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6MTAsInJvbGVJZCI6MiwidXNlcklkIjo3fX1dLCJpYXQiOjE2ODY3NDc4MDMsImV4cCI6MTY4Njc4MzgwM30._1penx_I_E-AAkXg_pll4cjIKEG5fhGWC6uyRxzIue8"
+    },
     "tests": []
   }
 ]

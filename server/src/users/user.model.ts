@@ -12,9 +12,11 @@ import {
 import { Role } from 'src/roles/roles.model';
 import { UserRoles } from 'src/roles/user-role.model';
 
-interface UserCreationAttrs {
+export interface UserCreationAttrs {
   login: string;
   password: string;
+  roles: Role[];
+  userDescriptions: UserDescription[];
 }
 
 @Table({ tableName: 'users' })

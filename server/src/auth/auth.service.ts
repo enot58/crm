@@ -52,6 +52,18 @@ export class AuthService {
     }
   }
 
+  async checkAuth(user: User) {
+    try {
+      const token = this.generateToken(user);
+      return token;
+    } catch (e) {
+      throw new HttpException(
+        e.message || 'Произошла ошибка',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
   private async generateToken(user: User) {
     const payload = { login: user.login, id: user.id, roles: user.roles };
     return {
