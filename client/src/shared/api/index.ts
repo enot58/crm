@@ -2,5 +2,7 @@
 
 import { useLoginMutation, useRegisterMutation, useCheckQuery } from "./auth";
 import { authApi } from "./auth";
-export { authApi };
+import { userDescriptionApi } from "./user-description";
+
+export { authApi, userDescriptionApi };
 export { useLoginMutation, useRegisterMutation, useCheckQuery };

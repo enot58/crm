@@ -1,14 +1,5 @@
 import IUser from "./IUser";
-
-interface IMessage {
-    message: string;
-}
-
-interface IDataError {
-    status: number;
-    data: IMessage;
-}
-
+import { IDataError } from "../error";
 // Интерфейс для сосздания слайса
 interface IUserSlice {
     user: IUser | null;
@@ -16,7 +7,7 @@ interface IUserSlice {
     isLoading: boolean;
     isError: boolean;
     token: string | null;
-    dataError?: IDataError | null;
+    dataError: IDataError | null;
 }
 
 export default IUserSlice;

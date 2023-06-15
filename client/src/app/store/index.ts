@@ -22,6 +22,7 @@ listenerMiddleware.startListening({
 
 const rootReducer = combineReducers({
     user: userReducer,
+
     [api.reducerPath]: api.reducer,
 });
 const store = configureStore({

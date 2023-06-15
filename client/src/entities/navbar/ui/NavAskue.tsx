@@ -4,14 +4,19 @@ import { IRole, INavLinkAskueProps } from "../../../shared/interfaces";
 
 interface INavAskue {
     configData: INavLinkAskueProps[];
-    role: IRole[];
+    roles: IRole[];
 }
 
-const NavAskue: React.FC<INavAskue> = ({ configData, role }) => {
+const NavAskue: React.FC<INavAskue> = ({ configData, roles }) => {
     return (
         <>
             {configData.map((item) => (
-                <NavLinkAskue key={item.to} {...item} role={role} />
+                <NavLinkAskue
+                    key={item.to}
+                    {...item}
+                    accessFor={item.accessFor}
+                    roles={roles}
+                />
             ))}
         </>
     );

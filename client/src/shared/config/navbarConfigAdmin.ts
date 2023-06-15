@@ -1,8 +1,8 @@
 import { INavLinkAskueProps } from "../interfaces";
 import { EnRole } from "./enumRole";
-const configNav: INavLinkAskueProps[] = [
+const configNavAdmin: INavLinkAskueProps[] = [
     {
-        title: "Главная",
+        title: "Вернуться",
         to: "/",
         accessFor: [EnRole.USER, EnRole.ADMIN],
     },
@@ -18,4 +18,4 @@ const configNav: INavLinkAskueProps[] = [
     },
 ];
 
-export default configNav;
+export default configNavAdmin;
