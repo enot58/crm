@@ -1,6 +1,5 @@
 import React from "react";
-import { Col, Container, Dropdown, Navbar, Row } from "react-bootstrap";
-import { configNav } from "../../shared/config";
+import { Col, Container, Navbar } from "react-bootstrap";
 import { NavAskue, Profile } from "./ui";
 import { INavLinkAskueProps, IRole } from "../../shared/interfaces";
 import { userDescriptionApi } from "../../shared/api";
@@ -13,7 +12,7 @@ interface INavAskue {
 const NavbarAskue: React.FC<INavAskue> = ({ roles, configData }) => {
     // Получаем данные пользователя
     const { isError, data } = userDescriptionApi.useGetUserDescriptionQuery();
-
+    console.log(data, isError);
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>

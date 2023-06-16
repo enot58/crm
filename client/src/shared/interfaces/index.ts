@@ -6,6 +6,8 @@ import IRequireAuthProps from "./auth/IRequireAuthProps";
 import ICheckRoleAuth from "./auth/ICheckRoleAuth";
 import IButtonUI from "./ui/buttons/IButtonUI";
 import { IRole, IUser, IUserLogin, IUserSlice } from "./store";
+import { ILinkItemGroupProps } from "./ui/link";
+import { IConfigAdmin } from "./config";
 
 export type {
     INavLinkAskueProps,
@@ -19,4 +21,6 @@ export type {
     IUserLogin,
     IUserSlice,
     ICheckRoleAuth,
+    ILinkItemGroupProps,
+    IConfigAdmin,
 };
