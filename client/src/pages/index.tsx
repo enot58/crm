@@ -42,7 +42,7 @@ export const Routing = () => {
             <Route
                 path="admin/*"
                 element={
-                    <CheckAuthAndRole role={[EnRole.DIRECTOR, EnRole.USER]}>
+                    <CheckAuthAndRole role={[EnRole.ADMIN, EnRole.USER]}>
                         <Suspense
                             fallback={
                                 <LoadingSpin

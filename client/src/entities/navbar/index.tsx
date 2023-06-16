@@ -11,8 +11,8 @@ interface INavAskue {
 
 const NavbarAskue: React.FC<INavAskue> = ({ roles, configData }) => {
     // Получаем данные пользователя
-    const { isError, data } = userDescriptionApi.useGetUserDescriptionQuery();
-    console.log(data, isError);
+    // const { isError, data } = userDescriptionApi.useGetUserDescriptionQuery();
+    // console.log(data, isError);
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>

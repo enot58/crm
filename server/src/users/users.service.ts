@@ -54,7 +54,7 @@ export class UsersService {
   // Получить всех пользователей
   async getAllUsers() {
     const users = await this.userRepository.findAll({
-      include: { model: Role },
+      include: { all: true },
     });
     return users;
   }
