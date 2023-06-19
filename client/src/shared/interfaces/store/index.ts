@@ -3,9 +3,15 @@ import IUser from "./users/IUser";
 import IUserSlice from "./users/IUserSlice";
 import IUserLogin from "./users/IUserLogin";
 import { IDataError } from "./error";
+import { IUsersResponse } from "./users/IUserResponse";
+import { IUserDescription } from "./users/IUserDescription";
 
-interface AppState {
-    users: IUserSlice;
-}
-
-export type { IRole, IUser, IUserSlice, IUserLogin, AppState, IDataError };
+export type {
+    IRole,
+    IUser,
+    IUserSlice,
+    IUserLogin,
+    IUsersResponse,
+    IUserDescription,
+    IDataError,
+};

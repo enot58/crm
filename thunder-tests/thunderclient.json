@@ -1325,5 +1325,23 @@
       "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDM6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMDk6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6MTAsInJvbGVJZCI6MiwidXNlcklkIjo3fX1dLCJpYXQiOjE2ODY3NDc4MDMsImV4cCI6MTY4Njc4MzgwM30._1penx_I_E-AAkXg_pll4cjIKEG5fhGWC6uyRxzIue8"
     },
     "tests": []
+  },
+  {
+    "_id": "71282658-65f7-4758-864d-d55b7fbeea0e",
+    "colId": "4aecfffc-2f19-4ea7-b660-7efe98065a30",
+    "containerId": "f39de73d-182c-4d14-a19a-5b302bb4bd02",
+    "name": "FindByID",
+    "url": "localhost:5000/users/1",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-06-19T06:42:47.784Z",
+    "modified": "2023-06-19T06:46:29.469Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwiaWQiOjcsInJvbGVzIjpbeyJpZCI6MiwibmFtZSI6ImFkbWluIiwiZGVzY3JpcHRpb24iOiLQkNC00LzQuNC90LjRgdGC0YDQsNGC0L7RgCIsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMTdUMDM6Mzc6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMTdUMDk6NDk6MTQuMDAwWiIsIlVzZXJSb2xlcyI6eyJpZCI6MTAsInJvbGVJZCI6MiwidXNlcklkIjo3fX1dLCJpYXQiOjE2ODcxNTY5NTAsImV4cCI6MTY4NzE5Mjk1MH0.iAqhnWhd4zMtSomNAOxAFMvy-I41iIUilf5YU_OHilU"
+    },
+    "tests": []
   }
 ]

@@ -1,11 +1,22 @@
 import INavLinkAskueProps from "./navbar/INavLinkAskueProps";
-import IInputStringProps from "./ui/inputsString/IInputsStringProps";
+import {
+    IInputStringFormGroupProps,
+    IInputStringProps,
+} from "./ui/inputsString";
 import IConfig from "./navbar/IConfig";
 import IInputNumber from "./ui/inputsNumber/IInputNumberProps";
 import IRequireAuthProps from "./auth/IRequireAuthProps";
 import ICheckRoleAuth from "./auth/ICheckRoleAuth";
 import IButtonUI from "./ui/buttons/IButtonUI";
-import { IRole, IUser, IUserLogin, IUserSlice } from "./store";
+import {
+    IRole,
+    IUser,
+    IUserLogin,
+    IUserSlice,
+    IDataError,
+    IUserDescription,
+    IUsersResponse,
+} from "./store";
 import { ILinkItemGroupProps } from "./ui/link";
 import { IConfigAdmin } from "./config";
 
@@ -23,4 +34,8 @@ export type {
     ICheckRoleAuth,
     ILinkItemGroupProps,
     IConfigAdmin,
+    IDataError,
+    IUsersResponse,
+    IUserDescription,
+    IInputStringFormGroupProps,
 };

@@ -2,5 +2,12 @@
 import { RequireAuth, CheckRoleAuth } from "./auth";
 import NavbarAskueFeaters from "./navbar/NavbarAskueFeaters";
 import LeftMenuAdmin from "./leftMenu/LeftMenuAdmin";
+import { UsersAdminFeatures } from "./admin";
 
-export { RequireAuth, NavbarAskueFeaters, CheckRoleAuth, LeftMenuAdmin };
+export {
+    RequireAuth,
+    NavbarAskueFeaters,
+    CheckRoleAuth,
+    LeftMenuAdmin,
+    UsersAdminFeatures,
+};

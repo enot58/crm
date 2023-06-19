@@ -8,6 +8,8 @@ import { configNavAdmin, LoadingVariant } from "../../shared/config";
 const AdminPanel = lazy(() => import("./AdminPanel"));
 const SubPage = lazy(() => import("./SubPage"));
 const Users = lazy(() => import("./users"));
+const OneUser = lazy(() => import("./users/OneUser"));
+
 const AdminPanelRoute = () => {
     return (
         <>
@@ -49,6 +51,23 @@ const AdminPanelRoute = () => {
                                             }
                                         >
                                             <Users />
+                                        </Suspense>
+                                    }
+                                />
+
+                                <Route
+                                    path="users/:userId"
+                                    element={
+                                        <Suspense
+                                            fallback={
+                                                <LoadingSpin
+                                                    variant={
+                                                        LoadingVariant.SECONDARY
+                                                    }
+                                                />
+                                            }
+                                        >
+                                            <OneUser />
                                         </Suspense>
                                     }
                                 />

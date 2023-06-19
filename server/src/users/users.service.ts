@@ -60,8 +60,20 @@ export class UsersService {
   }
   // Получить одного пользователя по id
   async findUserOneById(id: number) {
-    const user = await this.userRepository.findByPk(id);
-    return user;
+    try {
+      const user = await this.userRepository.findByPk(id, {
+        include: { all: true },
+      });
+      if (!user) {
+        throw new HttpException('Пользователь не найден', HttpStatus.NOT_FOUND);
+      }
+      return user;
+    } catch (e) {
+      throw new HttpException(
+        e.message || 'Произошла ошибка',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
   // Добавить роль пользователю
   async addRoleToUser(dto: AddRoleDto) {

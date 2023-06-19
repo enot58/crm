@@ -3,5 +3,13 @@ import NavbarAskue from "./navbar";
 import LoadingSpin from "./loadingSpin";
 import LinkGroup from "./linkGroup/LinkGroup";
 import LeftMenu from "./leftPanel/LeftMenu";
+import { CreateUserModal, UserTable } from "./admin";
 
-export { NavbarAskue, LoadingSpin, LinkGroup, LeftMenu };
+export {
+    NavbarAskue,
+    LoadingSpin,
+    LinkGroup,
+    LeftMenu,
+    CreateUserModal,
+    UserTable,
+};

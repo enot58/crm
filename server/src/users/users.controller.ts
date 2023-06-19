@@ -50,6 +50,13 @@ export class UsersController {
     return this.userService.getAllUsers();
   }
 
+  @ApiOperation({ summary: 'Получить пользователя по id' })
+  @ApiResponse({ status: 200, type: User })
+  @Get(':id')
+  findOne(@Param('id') id: number) {
+    return this.userService.findUserOneById(id);
+  }
+
   @ApiOperation({ summary: 'Получить пользователя по наименованию' })
   @ApiResponse({ status: 200, type: [User] })
   @Get('findByLogin/:login')
