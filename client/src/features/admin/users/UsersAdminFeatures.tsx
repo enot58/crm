@@ -1,19 +1,23 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import { CreateUserModal, UserTable } from "../../../entities";
+import { CreateUserModal, LoadingSpin, UserTable } from "../../../entities";
 import { userApi } from "../../../shared/api";
 import { useAppSelector } from "../../../shared/hooks";
 
 const UsersAdminFeatures = () => {
     const { isSuccess } = userApi.useGetAllUsersQuery();
-    const { list } = useAppSelector((store) => store.listUser);
+    const { list, isLoading } = useAppSelector((store) => store.listUser);
     const navigate = useNavigate();
 
     // По клику переходм в профиль по id
     const goToProfile = (id: number) => {
         navigate(`/admin/users/${id}`);
     };
+
+    if (isLoading) {
+        return <LoadingSpin variant="primary" />;
+    }
 
     return (
         <Row>

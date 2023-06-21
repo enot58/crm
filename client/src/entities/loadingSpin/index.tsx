@@ -2,7 +2,15 @@ import React from "react";
 import { Container, Spinner } from "react-bootstrap";
 
 type LoadingSpinProps = {
-    variant?: string;
+    variant?:
+        | "primary"
+        | "secondary"
+        | "success"
+        | "danger"
+        | "warning"
+        | "info"
+        | "light"
+        | "dark";
 };
 
 const LoadingSpin: React.FC<LoadingSpinProps> = ({ variant = "" }) => {
