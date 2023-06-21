@@ -1,26 +1,36 @@
 import React from "react";
-import { Form, Row, Col } from "react-bootstrap";
-import { useStringForFormInput } from "../../../shared/hooks";
-import { IInputStringFormGroupProps } from "../../../shared/interfaces";
+import { Form, Row } from "react-bootstrap";
 import { InputStringFormGroup } from "../../../shared/ui";
 
-const CreateUserBodyModal: React.FC = () => {
-    const [] = useStringForFormInput("", "Логин", false);
+interface ICreateUserBodyModal {
+    login: string;
+    password: string;
+    handleInputChangeLogin: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleInputChangePassword: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+const CreateUserBodyModal: React.FC<ICreateUserBodyModal> = ({
+    login,
+    password,
+    handleInputChangeLogin,
+    handleInputChangePassword,
+}) => {
     return (
         <Row>
             <Form>
                 <Row>
                     <InputStringFormGroup
-                        disabled
-                        onChange={}
-                        title={"Имя"}
-                        value={""}
+                        disabled={false}
+                        onChange={(e) => handleInputChangeLogin(e)}
+                        title="Логин"
+                        value={login}
                     />
-                    <Form.Group as={Col} className="mb-3">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="text" />
-                    </Form.Group>
+                    <InputStringFormGroup
+                        disabled={false}
+                        onChange={(e) => handleInputChangePassword(e)}
+                        title="Пароль"
+                        value={password}
+                    />
                 </Row>
             </Form>
         </Row>

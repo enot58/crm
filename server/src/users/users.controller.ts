@@ -9,6 +9,7 @@ import { RolesGuard } from 'src/auth/roles.guards';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.model';
 import { UsersService } from './users.service';
+import { CreateUserWithRoleDto } from './dto/create-user-with-role.dto';
 
 @ApiTags('Пользователи')
 @Controller('users')
@@ -19,8 +20,14 @@ export class UsersController {
   @ApiResponse({ status: 200, type: User })
   @Post()
   create(@Body() userDto: CreateUserDto) {
-    console.log(userDto);
     return this.userService.createUser(userDto);
+  }
+
+  @ApiOperation({ summary: 'Создать и присвоить одну роль' })
+  @ApiResponse({ status: 200, type: User })
+  @Post('/createWithRole')
+  createWithRole(@Body() userDto: CreateUserWithRoleDto) {
+    return this.userService.createWithRole(userDto);
   }
 
   @ApiOperation({ summary: 'Выдать роль' })

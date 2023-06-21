@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
-import { Action, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { IUser, IUserSlice } from "../../interfaces";
 import { authApi } from "../../api/auth";
 import { IDataError } from "../../interfaces/store";

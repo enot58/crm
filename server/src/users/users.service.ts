@@ -5,6 +5,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { CreateUserDto } from './dto/create-user.dto';
 import { RolesService } from 'src/roles/roles.service';
 import { Role } from 'src/roles/roles.model';
+import { CreateUserWithRoleDto } from './dto/create-user-with-role.dto';
 
 @Injectable()
 export class UsersService {
@@ -15,7 +16,7 @@ export class UsersService {
   // Создаём пользователя
   async createUser(dto: CreateUserDto) {
     try {
-      const role = await this.rolesService.findRoleByName('admin');
+      const role = await this.rolesService.findRoleByName('user');
       if (!role) {
         throw new HttpException(
           'Роли с таким наименование не существует',
@@ -49,6 +50,41 @@ export class UsersService {
           HttpStatus.INTERNAL_SERVER_ERROR,
         );
       }
+    }
+  }
+
+  async createWithRole(dto: CreateUserWithRoleDto) {
+    try {
+      const role = await this.rolesService.findRoleByName(dto.role);
+      if (!role) {
+        throw new HttpException(
+          'Роли с таким наименование не существует',
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+
+      const [user, created] = await this.userRepository.findOrCreate({
+        where: { login: dto.login },
+        defaults: {
+          password: dto.password,
+        },
+      });
+      if (!created) {
+        throw new HttpException(
+          'Пользователь с таким логином уже существует',
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+
+      await user.$set('roles', [role.id]);
+      user.roles = [role];
+
+      return { user };
+    } catch (e) {
+      throw new HttpException(
+        e.message || 'Произошла ошибка',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
   // Получить всех пользователей
