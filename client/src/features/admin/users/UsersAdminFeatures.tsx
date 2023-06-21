@@ -2,14 +2,12 @@ import React from "react";
 import { Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { CreateUserModal, UserTable } from "../../../entities";
-import { authApi, userApi } from "../../../shared/api";
+import { userApi } from "../../../shared/api";
 import { useAppSelector } from "../../../shared/hooks";
 
 const UsersAdminFeatures = () => {
-    const { data, isSuccess } = userApi.useGetAllUsersQuery();
-    const { list, isError, isLoading } = useAppSelector(
-        (store) => store.listUser
-    );
+    const { isSuccess } = userApi.useGetAllUsersQuery();
+    const { list } = useAppSelector((store) => store.listUser);
     const navigate = useNavigate();
 
     // По клику переходм в профиль по id

@@ -26,7 +26,6 @@ const CreateUserModal: React.FC = () => {
         e.preventDefault();
         try {
             const x = registerMutation(userData);
-            console.log(x);
             handleClose();
         } catch (error) {
             console.log(error);

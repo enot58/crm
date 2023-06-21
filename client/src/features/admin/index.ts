@@ -1,3 +1,4 @@
 import { UsersAdminFeatures } from "./users";
+import { OneUserForm } from "./oneUser";
 
-export { UsersAdminFeatures };
+export { UsersAdminFeatures, OneUserForm };

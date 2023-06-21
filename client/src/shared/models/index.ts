@@ -1,2 +1,3 @@
-import { userReducer } from "./users/userSlice";
-export { userReducer };
+import { userReducer, oneUserReducer, listUserReducer } from "./users";
+
+export { userReducer, oneUserReducer, listUserReducer };

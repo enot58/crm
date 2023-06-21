@@ -14,7 +14,7 @@ const InputStringFormGroup: React.FC<IInputStringFormGroupProps> = ({
                 <Form.Label>{title}</Form.Label>
                 <Form.Control
                     type="text"
-                    value={value}
+                    value={value ? value : ""}
                     disabled={disabled}
                     onChange={onChange}
                 />

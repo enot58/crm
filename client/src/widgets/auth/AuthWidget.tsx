@@ -88,6 +88,7 @@ const AuthWidget: React.FC = () => {
                     <InputString {...loginProps} />
                     <InputString {...passwordProps} />
                     <ButtonUI
+                        variant="success"
                         onClick={(
                             e: React.MouseEvent<HTMLButtonElement, MouseEvent>
                         ) => handleSubmit(e)}

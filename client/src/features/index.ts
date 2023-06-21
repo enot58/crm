@@ -2,7 +2,7 @@
 import { RequireAuth, CheckRoleAuth } from "./auth";
 import NavbarAskueFeaters from "./navbar/NavbarAskueFeaters";
 import LeftMenuAdmin from "./leftMenu/LeftMenuAdmin";
-import { UsersAdminFeatures } from "./admin";
+import { UsersAdminFeatures, OneUserForm } from "./admin";
 
 export {
     RequireAuth,
@@ -10,4 +10,5 @@ export {
     CheckRoleAuth,
     LeftMenuAdmin,
     UsersAdminFeatures,
+    OneUserForm,
 };

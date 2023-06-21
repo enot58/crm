@@ -4,7 +4,10 @@ import IRole from "./IRole";
 interface IUser {
     id: number;
     login: string;
-    roles: IRole[];
+    password?: string;
+    updatedAt?: string;
+    createdAt?: string;
+    roles?: IRole[];
 }
 
 export default IUser;

@@ -6,7 +6,7 @@ import {
     InputNumberFloat,
 } from "./inputs";
 
-import { ButtonUI } from "./buttons";
+import { ButtonUI, ButtonGoBack } from "./buttons";
 import { LinkItemGroup } from "./link";
 
 export {
