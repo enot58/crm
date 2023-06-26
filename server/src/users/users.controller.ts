@@ -1,6 +1,6 @@
 import { AddRoleDto } from './dto/add_role.dto';
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { Param, UseGuards } from '@nestjs/common/decorators';
+import { Delete, Param, UseGuards } from '@nestjs/common/decorators';
 import { ApiOperation } from '@nestjs/swagger/dist';
 import { ApiResponse } from '@nestjs/swagger/dist/decorators';
 import { ApiTags } from '@nestjs/swagger/dist/decorators/api-use-tags.decorator';
@@ -69,5 +69,14 @@ export class UsersController {
   @Get('findByLogin/:login')
   findByName(@Param('login') login: string) {
     return this.userService.findUserByLogin(login);
+  }
+
+  @ApiOperation({ summary: 'Удалить пользователя' })
+  @ApiResponse({ status: 200, type: User })
+  @Roles('admin')
+  @UseGuards(RolesGuard)
+  @Delete(':id')
+  deleteUser(@Param('id') id: number) {
+    return this.userService.deleteUser(id);
   }
 }

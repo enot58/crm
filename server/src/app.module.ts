@@ -39,6 +39,7 @@ import { ObjectsModule } from './objects/objects.module';
       models: [],
       autoLoadModels: true,
       synchronize: true,
+      //sync: { force: true },
     }),
 
     WarehouseModule,

@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-04-08T20:40:12.379Z",
-    "modified": "2023-04-17T06:37:18.450Z",
+    "modified": "2023-06-26T11:56:13.081Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"admin\",\n  \"description\": \"Пользователь\"\n}",
+      "raw": "{\n  \"name\": \"user\",\n  \"description\": \"User\"\n}",
       "form": []
     },
     "tests": []
@@ -73,12 +73,12 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-04-09T10:17:03.469Z",
-    "modified": "2023-04-17T12:39:54.441Z",
+    "modified": "2023-06-26T12:25:45.284Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"login\": \"admin\",\n  \"password\": \"admin\"\n}",
+      "raw": "{\n  \"login\": \"user\",\n  \"password\": \"admin\"\n}",
       "form": []
     },
     "tests": []

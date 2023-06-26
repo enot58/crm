@@ -29,7 +29,7 @@ export class UsersService {
           password: dto.password,
         },
       });
-      if (!created) {
+      if (!user) {
         throw new HttpException(
           'Пользователь с таким логином уже существует',
           HttpStatus.BAD_REQUEST,
@@ -90,6 +90,7 @@ export class UsersService {
   // Получить всех пользователей
   async getAllUsers() {
     const users = await this.userRepository.findAll({
+      where: { deletedAt: null },
       include: { all: true },
     });
     return users;
@@ -157,6 +158,23 @@ export class UsersService {
           HttpStatus.INTERNAL_SERVER_ERROR,
         );
       }
+    }
+  }
+
+  // Удаляем пользоваетеля
+  async deleteUser(id: number) {
+    try {
+      const user = await this.userRepository.findByPk(id);
+      if (!user) {
+        throw new HttpException('Пользователь не найден', HttpStatus.NOT_FOUND);
+      }
+      await User.destroy({ where: { id } });
+      return user;
+    } catch (e) {
+      throw new HttpException(
+        e.message || 'Произошла ошибка',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 }

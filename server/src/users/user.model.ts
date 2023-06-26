@@ -19,7 +19,7 @@ export interface UserCreationAttrs {
   userDescriptions: UserDescription[];
 }
 
-@Table({ tableName: 'users' })
+@Table({ tableName: 'users', paranoid: true })
 export class User extends Model<User, UserCreationAttrs> {
   @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
   @Column({
@@ -36,6 +36,10 @@ export class User extends Model<User, UserCreationAttrs> {
   @ApiProperty({ example: 'admin', description: 'Пароль' })
   @Column({ type: DataType.STRING, allowNull: false })
   password: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @BelongsToMany(() => Role, () => UserRoles)
   roles: Role[];

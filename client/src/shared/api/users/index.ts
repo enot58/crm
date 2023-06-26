@@ -17,6 +17,13 @@ export const userApi = api.injectEndpoints({
                 method: "GET",
             }),
         }),
+        // Удаляем по id Пользователя
+        delUserById: builder.mutation<IUsersResponse, string>({
+            query: (id) => ({
+                url: `/users/${id}`,
+                method: "DELETE",
+            }),
+        }),
     }),
 });
 

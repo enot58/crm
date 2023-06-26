@@ -65,6 +65,23 @@ const listUsersSlice = createSlice({
                 state.isError = true;
             }
         );
+
+        // Удаляем пользователя
+        builder.addMatcher(
+            userApi.endpoints.delUserById.matchFulfilled,
+            (state, action) => {
+                state.list = state.list.filter(
+                    (user) => user.id !== action.payload.id
+                );
+            }
+        );
+
+        builder.addMatcher(
+            userApi.endpoints.delUserById.matchRejected,
+            (state, action) => {
+                state.isError = true;
+            }
+        );
     },
 });
 

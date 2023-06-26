@@ -6,6 +6,8 @@ import { IDataError } from "./error";
 import { IUsersResponse } from "./users/IUserResponse";
 import { IUserDescription } from "./users/IUserDescription";
 
+import { IRolesSlice } from "./roles";
+
 export type {
     IRole,
     IUser,
@@ -14,4 +16,5 @@ export type {
     IUsersResponse,
     IUserDescription,
     IDataError,
+    IRolesSlice,
 };

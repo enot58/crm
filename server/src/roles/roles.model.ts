@@ -15,7 +15,7 @@ interface RoleCreationAttr {
   description: string;
 }
 
-@Table({ tableName: 'roles' })
+@Table({ tableName: 'roles', paranoid: true })
 export class Role extends Model<Role, RoleCreationAttr> {
   @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
   @Column({
@@ -33,6 +33,10 @@ export class Role extends Model<Role, RoleCreationAttr> {
   @ApiProperty({ example: 'Администратор', description: 'Описание роли' })
   @Column({ type: DataType.STRING, allowNull: false })
   description: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @BelongsToMany(() => User, () => UserRoles)
   users: User[];

@@ -3,7 +3,7 @@ import {
     configureStore,
     createListenerMiddleware,
 } from "@reduxjs/toolkit";
-import { oneUserReducer, userReducer } from "../../shared/models";
+import { oneUserReducer, rolesReducer, userReducer } from "../../shared/models";
 import { useDispatch } from "react-redux";
 import { api } from "../../shared/api/main";
 import { authApi } from "../../shared/api/auth";
@@ -25,6 +25,7 @@ const rootReducer = combineReducers({
     user: userReducer,
     listUser: listUserReducer,
     oneUser: oneUserReducer,
+    roles: rolesReducer,
     [api.reducerPath]: api.reducer,
 });
 const store = configureStore({

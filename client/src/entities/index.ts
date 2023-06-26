@@ -3,7 +3,15 @@ import NavbarAskue from "./navbar";
 import LoadingSpin from "./loadingSpin";
 import LinkGroup from "./linkGroup/LinkGroup";
 import LeftMenu from "./leftPanel/LeftMenu";
-import { CreateUserModal, UserTable, FormRowsOneUser } from "./admin";
+import {
+    CreateUserModal,
+    UserTable,
+    FormRowsOneUser,
+    ChangePassword,
+    ListGroupRoles,
+    RowUser,
+    RowUserDescription,
+} from "./admin";
 
 export {
     NavbarAskue,
@@ -13,4 +21,8 @@ export {
     CreateUserModal,
     UserTable,
     FormRowsOneUser,
+    ChangePassword,
+    ListGroupRoles,
+    RowUser,
+    RowUserDescription,
 };
