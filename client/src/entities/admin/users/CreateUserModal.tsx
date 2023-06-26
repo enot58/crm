@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Alert, Button, Modal, Row } from "react-bootstrap";
 import { authApi } from "../../../shared/api";
-import { useStringForFormInput } from "../../../shared/hooks";
+import { useAppSelector, useStringForFormInput } from "../../../shared/hooks";
+import LoadingSpin from "../../loadingSpin";
 import CreateUserBodyModal from "./CreateUserBodyModal";
+import ErrorCreateRole from "./ErrorCreateRole";
 
 const CreateUserModal: React.FC = () => {
     const [show, setShow] = useState(false);
@@ -17,8 +19,12 @@ const CreateUserModal: React.FC = () => {
         password,
     };
 
-    const [registerMutation, { isError, isLoading, isSuccess, data }] =
+    const [registerMutation, { isSuccess, data, error }] =
         authApi.useRegisterMutation();
+
+    const { dataError, isError, isLoading } = useAppSelector(
+        (store) => store.roles
+    );
 
     const handleSubmit = (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -28,7 +34,7 @@ const CreateUserModal: React.FC = () => {
             const x = registerMutation(userData);
             handleClose();
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
 
@@ -37,7 +43,11 @@ const CreateUserModal: React.FC = () => {
             <Button variant="primary" onClick={handleShow}>
                 Создать пользователя
             </Button>
-
+            {isError ? (
+                <ErrorCreateRole message={dataError.data.message} />
+            ) : (
+                <></>
+            )}
             <Modal show={show} size="lg" onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Создать пользователя</Modal.Title>
@@ -48,6 +58,9 @@ const CreateUserModal: React.FC = () => {
                         password={password}
                         handleInputChangeLogin={handleInputChangeLogin}
                         handleInputChangePassword={handleInputChangePassword}
+                        isError={isError}
+                        isLoading={isLoading}
+                        dataError={dataError ? dataError.data.message : ""}
                     />
                 </Modal.Body>
                 <Modal.Footer>
