@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { authApi } from "../../api";
+import { authApi, userApi } from "../../api";
 import { IDataError, IRolesSlice } from "../../interfaces/store";
 
 const initialState: IRolesSlice = {

@@ -29,7 +29,7 @@ export class UsersService {
           password: dto.password,
         },
       });
-      if (!user) {
+      if (!created) {
         throw new HttpException(
           'Пользователь с таким логином уже существует',
           HttpStatus.BAD_REQUEST,

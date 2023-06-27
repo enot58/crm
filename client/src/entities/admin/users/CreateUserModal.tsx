@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Alert, Button, Modal, Row } from "react-bootstrap";
+import {  Button, Modal } from "react-bootstrap";
 import { authApi } from "../../../shared/api";
 import { useAppSelector, useStringForFormInput } from "../../../shared/hooks";
-import LoadingSpin from "../../loadingSpin";
 import CreateUserBodyModal from "./CreateUserBodyModal";
 import ErrorCreateRole from "./ErrorCreateRole";
 
@@ -19,8 +18,7 @@ const CreateUserModal: React.FC = () => {
         password,
     };
 
-    const [registerMutation, { isSuccess, data, error }] =
-        authApi.useRegisterMutation();
+    const [registerMutation] = authApi.useRegisterMutation();
 
     const { dataError, isError, isLoading } = useAppSelector(
         (store) => store.roles
@@ -31,7 +29,7 @@ const CreateUserModal: React.FC = () => {
     ) => {
         e.preventDefault();
         try {
-            const x = registerMutation(userData);
+            registerMutation(userData);
             handleClose();
         } catch (error) {
             console.error(error);

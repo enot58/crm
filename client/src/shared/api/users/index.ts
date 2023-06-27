@@ -1,6 +1,11 @@
 import { IUsersResponse } from "../../interfaces";
 import { api } from "../main";
 
+interface AddRoleDto {
+    idUser: number;
+    nameRole: string;
+}
+
 export const userApi = api.injectEndpoints({
     endpoints: (builder) => ({
         // Получаем всех пользователей
@@ -22,6 +27,14 @@ export const userApi = api.injectEndpoints({
             query: (id) => ({
                 url: `/users/${id}`,
                 method: "DELETE",
+            }),
+        }),
+        // Добавляем роль для пользователя
+        addRoleToUser: builder.mutation<IUsersResponse, AddRoleDto>({
+            query: (dto) => ({
+                url: `/users/role`,
+                method: "POST",
+                body: dto,
             }),
         }),
     }),

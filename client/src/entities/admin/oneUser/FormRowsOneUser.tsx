@@ -1,10 +1,5 @@
 import React from "react";
-import { Row, Form, Col, ListGroup, Image, Button } from "react-bootstrap";
-import { useAppSelector } from "../../../shared/hooks";
-import { IUsersResponse } from "../../../shared/interfaces";
-import { ButtonUI, InputStringFormGroup } from "../../../shared/ui";
-import RowUser from "./RowUser";
-import RowUserDescription from "./RowUserDescription";
+import { Row, Form, Col, Button } from "react-bootstrap";
 
 interface IFormRowsOneUserProps {
     children: React.ReactNode;
@@ -16,10 +11,6 @@ const FormRowsOneUser: React.FC<IFormRowsOneUserProps> = ({
     children,
     onClick,
 }) => {
-    const { user, roles, userDescriptions } = useAppSelector(
-        (store) => store.oneUser
-    );
-
     return (
         <>
             <Form>

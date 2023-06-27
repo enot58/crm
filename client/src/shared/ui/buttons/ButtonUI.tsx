@@ -4,7 +4,6 @@ import { IButtonUI } from "../../interfaces";
 
 const ButtonUI: React.FC<IButtonUI> = ({ label, onClick, variant }) => {
     return (
-        // <Row className="d-flex justify-content-between">
         <Button
             onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
                 onClick(e)
@@ -14,7 +13,6 @@ const ButtonUI: React.FC<IButtonUI> = ({ label, onClick, variant }) => {
         >
             {label}
         </Button>
-        // </Row>
     );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Alert, Button, Modal, Row } from "react-bootstrap";
-import { useAppDispatch, useAppSelector } from "../../../shared/hooks";
+import { useAppDispatch } from "../../../shared/hooks";
 import { setIsError } from "../../../shared/models";
 
 interface IErrorCreateRoleProps {
@@ -10,10 +10,10 @@ interface IErrorCreateRoleProps {
 const ErrorCreateRole: React.FC<IErrorCreateRoleProps> = ({ message }) => {
     const dispatch = useAppDispatch();
     const [show, setShow] = React.useState(false);
-    const { isError } = useAppSelector((store) => store.roles);
+    //const { isError } = useAppSelector((store) => store.roles);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    //const handleShow = () => setShow(true);
 
     const closeAlert = () => {
         dispatch(setIsError(false));

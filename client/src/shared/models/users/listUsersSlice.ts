@@ -85,5 +85,4 @@ const listUsersSlice = createSlice({
     },
 });
 
-export const {} = listUsersSlice.actions;
 export const listUserReducer = listUsersSlice.reducer;
