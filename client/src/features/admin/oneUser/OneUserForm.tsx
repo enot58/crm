@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Spinner } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router";
 import {
     ChangePassword,
@@ -9,31 +9,24 @@ import {
     RowUser,
     RowUserDescription,
 } from "../../../entities";
-import { userApi } from "../../../shared/api";
+import { rolesApi, userApi } from "../../../shared/api";
 import { useAppSelector } from "../../../shared/hooks";
-import { IUsersResponse } from "../../../shared/interfaces";
 import { ButtonGoBack } from "../../../shared/ui/buttons";
 
 const OneUserForm = () => {
     const { userId } = useParams();
     const navigate = useNavigate();
-    const { isSuccess, isError, data } = userApi.useGetUserByIdQuery(userId);
+    const { isSuccess } = userApi.useGetUserByIdQuery(userId);
+    const { data: arrRoles } = rolesApi.useGetAllRolesQuery();
+    console.log(arrRoles);
     const {
         user,
         userDescriptions,
         roles,
         isLoading: isLoadingRoles,
     } = useAppSelector((store) => store.oneUser);
-    const [
-        delUser,
-        {
-            isError: isDelError,
-            isLoading,
-            isSuccess: isDelSuccess,
-            data: delData,
-        },
-    ] = userApi.useDelUserByIdMutation();
-
+    const [delUser] = userApi.useDelUserByIdMutation();
+    const handleAddRole = (id: number) => {};
     const handleDel = () => {
         delUser(userId);
         navigate(-1);
@@ -58,7 +51,10 @@ const OneUserForm = () => {
                             {isLoadingRoles ? (
                                 <LoadingSpin variant="warning" />
                             ) : (
-                                <ListGroupRoles data={roles} />
+                                <ListGroupRoles
+                                    roleUser={roles}
+                                    dataAllRoles={arrRoles ? arrRoles : []}
+                                />
                             )}
                         </Col>
                     </Row>

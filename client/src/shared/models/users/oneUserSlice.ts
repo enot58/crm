@@ -56,6 +56,26 @@ const oneUserSlice = createSlice({
                 state.isError = true;
             }
         );
+
+        builder.addMatcher(
+            userApi.endpoints.addRoleToUser.matchPending,
+            (state, action) => {
+                state.isLoading = true;
+            }
+        );
+        builder.addMatcher(
+            userApi.endpoints.addRoleToUser.matchFulfilled,
+            (state, action) => {
+                state.isLoading = false;
+            }
+        );
+        builder.addMatcher(
+            userApi.endpoints.addRoleToUser.matchRejected,
+            (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+            }
+        );
     },
 });
 
