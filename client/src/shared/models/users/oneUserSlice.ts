@@ -67,10 +67,32 @@ const oneUserSlice = createSlice({
             userApi.endpoints.addRoleToUser.matchFulfilled,
             (state, action) => {
                 state.isLoading = false;
+                state.roles = action.payload.roles;
             }
         );
         builder.addMatcher(
             userApi.endpoints.addRoleToUser.matchRejected,
+            (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+            }
+        );
+        // Удаляем роль
+        builder.addMatcher(
+            userApi.endpoints.delRoleToUser.matchPending,
+            (state, action) => {
+                state.isLoading = true;
+            }
+        );
+        builder.addMatcher(
+            userApi.endpoints.delRoleToUser.matchFulfilled,
+            (state, action) => {
+                state.isLoading = false;
+                state.roles = action.payload.roles;
+            }
+        );
+        builder.addMatcher(
+            userApi.endpoints.delRoleToUser.matchRejected,
             (state, action) => {
                 state.isLoading = false;
                 state.isError = true;

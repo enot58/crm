@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Container, Navbar } from "react-bootstrap";
 import { NavAskue, Profile } from "./ui";
 import { INavLinkAskueProps, IRole } from "../../shared/interfaces";
-import { userDescriptionApi } from "../../shared/api";
 
 interface INavAskue {
     roles: IRole[];

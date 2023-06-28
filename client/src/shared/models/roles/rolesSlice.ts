@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { authApi, userApi } from "../../api";
+import { authApi, rolesApi } from "../../api";
 import { IDataError, IRolesSlice } from "../../interfaces/store";
 
 const initialState: IRolesSlice = {
@@ -40,6 +40,27 @@ const rolesSlice = createSlice({
                     status: Number(status),
                     data,
                 };
+            }
+        );
+        // Получаем все роли
+        builder.addMatcher(
+            rolesApi.endpoints.getAllRoles.matchPending,
+            (state, action) => {
+                state.isLoading = true;
+            }
+        );
+        builder.addMatcher(
+            rolesApi.endpoints.getAllRoles.matchFulfilled,
+            (state, action) => {
+                state.isLoading = false;
+                state.roles = action.payload;
+            }
+        );
+        builder.addMatcher(
+            rolesApi.endpoints.getAllRoles.matchRejected,
+            (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
             }
         );
     },

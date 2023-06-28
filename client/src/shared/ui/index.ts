@@ -16,4 +16,5 @@ export {
     ButtonUI,
     LinkItemGroup,
     InputStringFormGroup,
+    ButtonGoBack,
 };

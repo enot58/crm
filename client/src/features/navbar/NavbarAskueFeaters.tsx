@@ -1,7 +1,7 @@
 import React from "react";
 import { NavbarAskue } from "../../entities";
 import { useAppSelector } from "../../shared/hooks";
-import { INavLinkAskueProps, IRole } from "../../shared/interfaces";
+import { INavLinkAskueProps } from "../../shared/interfaces";
 
 interface INavAskue {
     configData: INavLinkAskueProps[];

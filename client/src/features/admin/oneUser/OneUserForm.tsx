@@ -18,18 +18,33 @@ const OneUserForm = () => {
     const navigate = useNavigate();
     const { isSuccess } = userApi.useGetUserByIdQuery(userId);
     const { data: arrRoles } = rolesApi.useGetAllRolesQuery();
-    console.log(arrRoles);
-    const {
-        user,
-        userDescriptions,
-        roles,
-        isLoading: isLoadingRoles,
-    } = useAppSelector((store) => store.oneUser);
+    const [addRole, { isError: isErrorAddRole, error: errorAddRole }] =
+        userApi.useAddRoleToUserMutation();
+    const { user, userDescriptions, roles } = useAppSelector(
+        (store) => store.oneUser
+    );
     const [delUser] = userApi.useDelUserByIdMutation();
-    const handleAddRole = (id: number) => {};
-    const handleDel = () => {
-        delUser(userId);
+    const [delRoleForUser] = userApi.useDelRoleToUserMutation();
+    const handleAddRole = (e, nameRole: string) => {
+        e.preventDefault();
+        addRole({
+            id: Number(userId),
+            name: nameRole,
+        });
+        if (isErrorAddRole) {
+            console.log(errorAddRole);
+        }
+    };
+
+    const handleDel = async () => {
+        await delUser(userId);
         navigate(-1);
+    };
+    const handleDelRole = async (nameRole: string) => {
+        await delRoleForUser({
+            id: Number(userId),
+            name: nameRole,
+        });
     };
 
     return (
@@ -48,14 +63,21 @@ const OneUserForm = () => {
                     </Row>
                     <Row>
                         <Col sm={6}>
-                            {isLoadingRoles ? (
+                            {/* {isLoadingRoles ? (
                                 <LoadingSpin variant="warning" />
                             ) : (
                                 <ListGroupRoles
                                     roleUser={roles}
                                     dataAllRoles={arrRoles ? arrRoles : []}
+                                    handleAddRole={handleAddRole}
                                 />
-                            )}
+                            )} */}
+                            <ListGroupRoles
+                                roleUser={roles}
+                                dataAllRoles={arrRoles ? arrRoles : []}
+                                handleAddRole={handleAddRole}
+                                onDelete={handleDelRole}
+                            />
                         </Col>
                     </Row>
                 </FormRowsOneUser>

@@ -20,6 +20,7 @@ export class UsersController {
   @ApiResponse({ status: 200, type: User })
   @Post()
   create(@Body() userDto: CreateUserDto) {
+    console.log('create');
     return this.userService.createUser(userDto);
   }
 
@@ -27,6 +28,7 @@ export class UsersController {
   @ApiResponse({ status: 200, type: User })
   @Post('/createWithRole')
   createWithRole(@Body() userDto: CreateUserWithRoleDto) {
+    console.log('createWithRole');
     return this.userService.createWithRole(userDto);
   }
 
@@ -36,6 +38,7 @@ export class UsersController {
   @UseGuards(RolesGuard)
   @Post('/role')
   addRole(@Body() dto: AddRoleDto) {
+    console.log('addRole');
     return this.userService.addRoleToUser(dto);
   }
 
@@ -45,6 +48,7 @@ export class UsersController {
   @UseGuards(RolesGuard)
   @Post('/delRole')
   delRole(@Body() dto: AddRoleDto) {
+    console.log('delRole');
     return this.userService.delRoleToUser(dto);
   }
 
@@ -54,6 +58,7 @@ export class UsersController {
   @UseGuards(RolesGuard)
   @Get()
   findAll() {
+    console.log('findAll');
     return this.userService.getAllUsers();
   }
 
@@ -61,6 +66,7 @@ export class UsersController {
   @ApiResponse({ status: 200, type: User })
   @Get(':id')
   findOne(@Param('id') id: number) {
+    console.log('findOne');
     return this.userService.findUserOneById(id);
   }
 
@@ -68,6 +74,7 @@ export class UsersController {
   @ApiResponse({ status: 200, type: [User] })
   @Get('findByLogin/:login')
   findByName(@Param('login') login: string) {
+    console.log('findByName');
     return this.userService.findUserByLogin(login);
   }
 
@@ -77,6 +84,7 @@ export class UsersController {
   @UseGuards(RolesGuard)
   @Delete(':id')
   deleteUser(@Param('id') id: number) {
+    console.log('deleteUser');
     return this.userService.deleteUser(id);
   }
 }

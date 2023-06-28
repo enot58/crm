@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Dropdown, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import DropdownMenu from "./DropdownMenu";
 
 interface IProfile {

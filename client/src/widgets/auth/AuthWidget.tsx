@@ -8,7 +8,7 @@ import { authApi, useLoginMutation } from "../../shared/api";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
 import { useAppSelector } from "../../shared/hooks";
-import { unlink } from "fs";
+
 const useLogin = () => {
     const [login, setLogin] = useState("");
     const loginProps: IInputStringProps = {
@@ -40,21 +40,13 @@ const AuthWidget: React.FC = () => {
     // Получим статус и ошибку
     const { isError, dataError } = useAppSelector((store) => store.user);
 
-    if (dataError) {
-        const { data: dataMessage, status } = dataError;
-    }
-
     const userData = {
         login,
         password,
     };
 
     const [loginMutation, { isLoading }] = useLoginMutation();
-    const {
-        isLoading: isCheckLoading,
-        data,
-        isError: isCheckError,
-    } = authApi.useCheckQuery();
+    const { isLoading: isCheckLoading, data } = authApi.useCheckQuery();
 
     const handleSubmit = (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>

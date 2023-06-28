@@ -5,21 +5,38 @@ import { ButtonUI } from "../../../shared/ui";
 
 import { AiTwotoneDelete } from "react-icons/ai";
 import ToastListRoles from "./ToastListRoles";
+import LoadingSpin from "../../loadingSpin";
 
 interface IListGroupRolesProps {
     roleUser: IRole[];
     dataAllRoles: IRole[];
-    onDelete?: (id: number) => void;
+    onDelete?: (nameRole: string) => void;
+    handleAddRole?: (e, nameRole: string) => void;
 }
 
 const ListGroupRoles: React.FC<IListGroupRolesProps> = ({
     roleUser,
     onDelete,
     dataAllRoles,
+    handleAddRole,
 }) => {
     const [showA, setShowA] = React.useState(false);
     const toggleShowA = () => setShowA(!showA);
-    const [size, setSize] = React.useState(25);
+
+    if (!roleUser) {
+        return (
+            <Col>
+                <h6>Список ролей</h6>
+                <ListGroup>
+                    <ListGroup.Item>
+                        <div style={{ position: "relative" }}>
+                            <LoadingSpin />
+                        </div>
+                    </ListGroup.Item>
+                </ListGroup>
+            </Col>
+        );
+    }
 
     return (
         <>
@@ -35,11 +52,11 @@ const ListGroupRoles: React.FC<IListGroupRolesProps> = ({
                                 <Col>
                                     <AiTwotoneDelete
                                         cursor={"pointer"}
-                                        size={size}
+                                        size={25}
                                         color="red"
-                                        onMouseEnter={() => setSize(28)}
-                                        onMouseLeave={() => setSize(25)}
-                                        onClick={() => onDelete(role.id)}
+                                        // onMouseEnter={() => setSize(28)}
+                                        // onMouseLeave={() => setSize(25)}
+                                        onClick={() => onDelete(role.name)}
                                     />
                                 </Col>
                             </Row>
@@ -59,7 +76,10 @@ const ListGroupRoles: React.FC<IListGroupRolesProps> = ({
                             </Toast.Header>
                             <Toast.Body>
                                 <ListGroup>
-                                    <ToastListRoles data={dataAllRoles} />
+                                    <ToastListRoles
+                                        handleAddRole={handleAddRole}
+                                        data={dataAllRoles}
+                                    />
                                 </ListGroup>
                             </Toast.Body>
                         </Toast>

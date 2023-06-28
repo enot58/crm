@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Row } from "react-bootstrap";
 import { InputStringFormGroup } from "../../../shared/ui";
-import LoadingSpin from "../../loadingSpin";
 
 interface ICreateUserBodyModal {
     login: string;

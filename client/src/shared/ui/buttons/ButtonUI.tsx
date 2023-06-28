@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { IButtonUI } from "../../interfaces";
 
 const ButtonUI: React.FC<IButtonUI> = ({ label, onClick, variant }) => {

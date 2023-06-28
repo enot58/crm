@@ -115,12 +115,15 @@ export class UsersService {
   // Добавить роль пользователю
   async addRoleToUser(dto: AddRoleDto) {
     const { id, name } = dto;
-    const user = await this.userRepository.findByPk(id);
+    const user = await this.userRepository.findByPk(id, { include: Role });
     const role = await this.rolesService.findRoleByName(name);
+    console.log(user, role);
     if (user && role) {
       await user.$add<Role>('roles', role);
-      return user;
+      const newUser = await this.userRepository.findByPk(id, { include: Role });
+      return newUser;
     }
+
     throw new HttpException(
       'Пользователь или роль не существует',
       HttpStatus.NOT_FOUND,
@@ -129,13 +132,17 @@ export class UsersService {
 
   // Удалить роль пользователю
   async delRoleToUser(dto: AddRoleDto) {
+    console.log('hello');
     const { id, name } = dto;
+    console.log(id, name);
     const user = await this.userRepository.findByPk(id);
     const role = await this.rolesService.findRoleByName(name);
     if (user && role) {
       await user.$remove('roles', role);
-      return user;
+      const newUser = await this.userRepository.findByPk(id, { include: Role });
+      return newUser;
     }
+
     throw new HttpException(
       'Пользователь или роль не существует',
       HttpStatus.NOT_FOUND,
