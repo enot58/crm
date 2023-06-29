@@ -5,9 +5,10 @@ import DropdownMenu from "./DropdownMenu";
 interface IProfile {
     img?: string;
     name?: string;
+    logout: () => void;
 }
 
-const Profile: React.FC<IProfile> = ({ img, name }) => {
+const Profile: React.FC<IProfile> = ({ img, name, logout }) => {
     return (
         <Col className="d-flex align-items-center justify-content-end">
             <Row className="profile-container d-flex align-items-center">
@@ -21,11 +22,11 @@ const Profile: React.FC<IProfile> = ({ img, name }) => {
                     ) : (
                         <> </>
                     )}
-                    {name ? <Col className="m-4">{name}</Col> : <>User </>}
+                    {name ? <h6>{name}</h6> : <></>}
                 </Col>
 
                 <Col>
-                    <DropdownMenu />
+                    <DropdownMenu logout={logout} />
                 </Col>
             </Row>
         </Col>

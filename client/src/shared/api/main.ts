@@ -27,3 +27,11 @@ export const api = createApi({
     refetchOnMountOrArgChange: true,
     endpoints: () => ({}),
 });
+
+export const objects = createApi({
+    reducerPath: "objects",
+    tagTypes: ["Objects"],
+    baseQuery: baseQueryWithRetry,
+    refetchOnMountOrArgChange: true,
+    endpoints: () => ({}),
+});
