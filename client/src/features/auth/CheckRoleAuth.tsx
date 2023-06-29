@@ -19,13 +19,6 @@ function findRole(roles: string[], roleState: IRole[]): boolean {
         });
     });
     return foundMatch;
-    // for (let i = 0; i < role.length; i++) {
-    //     if (roleState.some((oneRole: IRole) => oneRole.name === role[i])) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
 }
 
 const CheckRoleAuth: React.FC<ICheckRoleAuth> = ({ children, role }) => {
