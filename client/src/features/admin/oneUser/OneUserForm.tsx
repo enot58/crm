@@ -25,6 +25,7 @@ const OneUserForm = () => {
     );
     const [delUser] = userApi.useDelUserByIdMutation();
     const [delRoleForUser] = userApi.useDelRoleToUserMutation();
+
     const handleAddRole = (e, nameRole: string) => {
         e.preventDefault();
         addRole({

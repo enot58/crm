@@ -33,6 +33,7 @@ export class ObjectsBuildingService {
   async getAllObjectsBuilding() {
     try {
       const objectsBuilding = await this.objectsBuildingRepository.findAll({
+        where: { deletedAt: null },
         include: { all: true },
       });
       if (!objectsBuilding) {
@@ -82,7 +83,7 @@ export class ObjectsBuildingService {
       if (!objectBuilding) {
         throw new HttpException('Объект не найден', HttpStatus.NOT_FOUND);
       }
-      await objectBuilding.destroy();
+      await this.objectsBuildingRepository.destroy({ where: { id } });
       return objectBuilding;
     } catch (e) {
       throw new NotFoundException(e.message || 'Произошла ошибка');

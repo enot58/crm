@@ -17,7 +17,7 @@ export interface ProductNameAttributes {
   description?: string;
 }
 
-@Table({ tableName: 'product_name' })
+@Table({ tableName: 'product_name', paranoid: true })
 export class ProductName extends Model<ProductName, ProductNameAttributes> {
   @ApiProperty({ example: 1, description: 'Уникальный идентификатор' })
   @Column({
@@ -37,6 +37,10 @@ export class ProductName extends Model<ProductName, ProductNameAttributes> {
   @ApiProperty({ example: 'Кран шаровой', description: 'Описание продукта' })
   @Column({ type: DataType.STRING, allowNull: true })
   description?: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @ForeignKey(() => Category)
   @Column({ type: DataType.INTEGER })

@@ -14,7 +14,7 @@ export interface StockResidueAttributes {
   priceId: number;
   warehouseId: number;
 }
-@Table({ tableName: 'stock_residue' })
+@Table({ tableName: 'stock_residue', paranoid: true })
 export class StockResidue extends Model<StockResidue, StockResidueAttributes> {
   @ApiProperty({ example: 1, description: 'Уникальный идентификатор' })
   @Column({
@@ -30,6 +30,10 @@ export class StockResidue extends Model<StockResidue, StockResidueAttributes> {
   })
   @Column({ type: DataType.INTEGER, allowNull: true })
   amount: number;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @ForeignKey(() => Price)
   @Column({ type: DataType.INTEGER })

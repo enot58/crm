@@ -14,7 +14,7 @@ interface ObjectsBuildingCreationAttr {
   address: string;
 }
 
-@Table({ tableName: 'objects_building' })
+@Table({ tableName: 'objects_building', paranoid: true })
 export class ObjectsBuilding extends Model<
   ObjectsBuilding,
   ObjectsBuildingCreationAttr
@@ -33,6 +33,10 @@ export class ObjectsBuilding extends Model<
   @ApiProperty({ example: 'Москва', description: 'Адрес объекта' })
   @Column({ type: DataType.STRING, allowNull: false })
   address: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @BelongsToMany(() => Warehouse, () => ObjectsWarehouse)
   warehouse: Warehouse[];

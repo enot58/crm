@@ -7,7 +7,7 @@ interface TransportCompanyRepository {
   address: string;
 }
 
-@Table({ tableName: 'transport_company' })
+@Table({ tableName: 'transport_company', paranoid: true })
 export class TransportCompany extends Model<
   TransportCompany,
   TransportCompanyRepository
@@ -28,4 +28,8 @@ export class TransportCompany extends Model<
   @ApiProperty({ example: 'Москва', description: 'Адрес склада ТК' })
   @Column({ type: DataType.STRING, allowNull: false })
   address: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 }

@@ -23,8 +23,9 @@ function findRole(roles: string[], roleState: IRole[]): boolean {
 
 const CheckRoleAuth: React.FC<ICheckRoleAuth> = ({ children, role }) => {
     const location = useLocation();
-    const { isLoading } = useAppSelector((state) => state.user);
+
     const { roles: roleState } = useAppSelector((state) => state.user.user);
+    const { isLoading } = useAppSelector((state) => state.user);
 
     if (isLoading) {
         return <LoadingSpin variant={LoadingVariant.INFO} />;

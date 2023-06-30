@@ -6,8 +6,10 @@ import {
     InputNumberFloat,
 } from "./inputs";
 
-import { ButtonUI, ButtonGoBack } from "./buttons";
+import { ButtonUI, ButtonGoBack, ButtonForModals } from "./buttons";
 import { LinkItemGroup } from "./link";
+
+import { ModalUi } from "./modals";
 
 export {
     InputNumber,
@@ -17,4 +19,6 @@ export {
     LinkItemGroup,
     InputStringFormGroup,
     ButtonGoBack,
+    ButtonForModals,
+    ModalUi,
 };

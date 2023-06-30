@@ -19,6 +19,7 @@ import {
 } from "./store";
 import { ILinkItemGroupProps } from "./ui/link";
 import { IConfigAdmin } from "./config";
+import { IModalUiProps } from "./ui/modals/IModalUiProps";
 
 export type {
     INavLinkAskueProps,
@@ -38,4 +39,5 @@ export type {
     IUsersResponse,
     IUserDescription,
     IInputStringFormGroupProps,
+    IModalUiProps,
 };

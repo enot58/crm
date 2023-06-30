@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   Model,
   Table,
@@ -12,7 +13,7 @@ interface TypeCreationAttrs {
   name: string;
 }
 
-@Table({ tableName: 'type' })
+@Table({ tableName: 'type', paranoid: true })
 export class Type extends Model<Type, TypeCreationAttrs> {
   @Column({
     type: DataType.INTEGER,
@@ -28,6 +29,10 @@ export class Type extends Model<Type, TypeCreationAttrs> {
     allowNull: false,
   })
   name: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @BelongsToMany(() => Category, () => TypeCategory)
   categories: Category[];

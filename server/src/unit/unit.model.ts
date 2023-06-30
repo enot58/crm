@@ -6,7 +6,7 @@ interface UnitAttrs {
   name: string;
 }
 
-@Table({ tableName: 'unit' })
+@Table({ tableName: 'unit', paranoid: true })
 export class Unit extends Model<Unit, UnitAttrs> {
   @ApiProperty({ example: 1, description: 'Уникальный идентификатор' })
   @Column({
@@ -26,6 +26,9 @@ export class Unit extends Model<Unit, UnitAttrs> {
     allowNull: false,
   })
   name: string;
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @HasMany(() => ProductName)
   productNames: ProductName[];

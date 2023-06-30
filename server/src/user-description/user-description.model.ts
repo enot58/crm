@@ -17,7 +17,7 @@ interface UserDescriptionCreationAttrs {
   email?: string;
 }
 
-@Table({ tableName: 'user_description' })
+@Table({ tableName: 'user_description', paranoid: true })
 export class UserDescription extends Model<
   UserDescription,
   UserDescriptionCreationAttrs
@@ -50,6 +50,10 @@ export class UserDescription extends Model<
   @ApiProperty({ example: 'email@email.ru', description: 'Почта Пользователя' })
   @Column({ type: DataType.STRING, allowNull: true })
   email?: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @ForeignKey(() => User)
   @Column({ type: DataType.INTEGER })

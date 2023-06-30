@@ -47,14 +47,14 @@ const AuthWidget: React.FC = () => {
 
     const [loginMutation, { isLoading }] = useLoginMutation();
     const { isLoading: isCheckLoading, data } = authApi.useCheckQuery();
-
+    const { user } = useAppSelector((store) => store.user);
     const handleSubmit = (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
         try {
             const login = loginMutation(userData);
-            if (login) {
+            if (login && user !== null) {
                 navigate(location.state?.from || "/", { replace: true });
             }
         } catch (e) {
@@ -65,7 +65,7 @@ const AuthWidget: React.FC = () => {
     if (isLoading || isCheckLoading) {
         return <LoadingSpin variant={LoadingVariant.INFO} />;
     }
-    if (data) {
+    if (data && user !== null) {
         navigate("/", { replace: true });
     }
 

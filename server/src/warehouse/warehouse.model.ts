@@ -18,7 +18,7 @@ export interface WarehouseCreationAttr {
 }
 
 // Склад
-@Table({ tableName: 'warehouse' })
+@Table({ tableName: 'warehouse', paranoid: true })
 export class Warehouse extends Model<Warehouse, WarehouseCreationAttr> {
   @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
   @Column({
@@ -36,6 +36,10 @@ export class Warehouse extends Model<Warehouse, WarehouseCreationAttr> {
   @ApiProperty({ example: 'Москва', description: 'Адрес склада' })
   @Column({ type: DataType.STRING, allowNull: false })
   address: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @BelongsToMany(() => Price, () => StockResidue)
   prices: Price[];

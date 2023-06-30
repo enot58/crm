@@ -6,7 +6,7 @@ export interface ProviderCreationAttr {
   address: string;
 }
 
-@Table({ tableName: 'provider' })
+@Table({ tableName: 'provider', paranoid: true })
 export class Provider extends Model<Provider, ProviderCreationAttr> {
   @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
   @Column({
@@ -22,4 +22,8 @@ export class Provider extends Model<Provider, ProviderCreationAttr> {
   @ApiProperty({ example: 'Москва', description: 'Адрес поставщика' })
   @Column({ type: DataType.STRING, allowNull: false })
   address: string;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 }

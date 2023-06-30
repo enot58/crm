@@ -4,23 +4,22 @@ import { NavbarAskue } from "../../entities";
 import { useAppDispatch, useAppSelector } from "../../shared/hooks";
 import { INavLinkAskueProps } from "../../shared/interfaces";
 import { logout } from "../../shared/models";
+
 interface INavAskue {
     configData: INavLinkAskueProps[];
 }
 
 const NavbarAskueFeaters: React.FC<INavAskue> = ({ configData }) => {
     const { isAuth, user } = useAppSelector((store) => store.user);
-    const { user: userStore } = useAppSelector((store) => store);
-    console.log(userStore);
-    const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    if (!isAuth || user === null || !userStore) {
+    const navigate = useNavigate();
+    if (!isAuth || user === null) {
         return <></>;
     }
     const { roles } = user;
     const handleLogout = () => {
-        //dispatch(logout());
         navigate("/login", { replace: true });
+        dispatch(logout());
     };
 
     return (

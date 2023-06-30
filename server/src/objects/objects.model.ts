@@ -7,7 +7,7 @@ interface ObjectsCreationAttr {
   img?: string;
 }
 
-@Table({ tableName: 'objects' })
+@Table({ tableName: 'objects', paranoid: true })
 export class Objects extends Model<Objects, ObjectsCreationAttr> {
   @ApiProperty({ example: '1', description: 'Уникальный идентефикатор' })
   @Column({
@@ -40,4 +40,8 @@ export class Objects extends Model<Objects, ObjectsCreationAttr> {
   @ApiProperty({ example: 'Файл', description: 'Файл' })
   @Column({ type: DataType.STRING, allowNull: true })
   img?: any;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 }

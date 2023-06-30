@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   BelongsTo,
   BelongsToMany,
@@ -15,7 +16,7 @@ interface PriceAttrs {
   value: number;
 }
 
-@Table({ tableName: 'price' })
+@Table({ tableName: 'price', paranoid: true })
 export class Price extends Model<Price, PriceAttrs> {
   @Column({
     type: DataType.INTEGER,
@@ -30,6 +31,10 @@ export class Price extends Model<Price, PriceAttrs> {
     allowNull: false,
   })
   value: number;
+
+  @ApiProperty({ example: '12.12.2022', description: 'Дата' })
+  @Column({ type: DataType.DATE })
+  deletedAt!: Date;
 
   @ForeignKey(() => ProductName)
   @Column({ type: DataType.INTEGER })
