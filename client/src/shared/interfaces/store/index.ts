@@ -7,6 +7,8 @@ import { IUsersResponse } from "./users/IUserResponse";
 import { IUserDescription } from "./users/IUserDescription";
 
 import { IRolesSlice } from "./roles";
+import { ICreateObjectSlice, IObject } from "./objects";
+import { IWarehouse } from "./warehouse";
 
 export type {
     IRole,
@@ -17,4 +19,7 @@ export type {
     IUserDescription,
     IDataError,
     IRolesSlice,
+    ICreateObjectSlice,
+    IObject,
+    IWarehouse,
 };

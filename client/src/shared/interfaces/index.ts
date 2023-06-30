@@ -16,6 +16,8 @@ import {
     IDataError,
     IUserDescription,
     IUsersResponse,
+    ICreateObjectSlice,
+    IRolesSlice,
 } from "./store";
 import { ILinkItemGroupProps } from "./ui/link";
 import { IConfigAdmin } from "./config";
@@ -40,4 +42,6 @@ export type {
     IUserDescription,
     IInputStringFormGroupProps,
     IModalUiProps,
+    ICreateObjectSlice,
+    IRolesSlice,
 };

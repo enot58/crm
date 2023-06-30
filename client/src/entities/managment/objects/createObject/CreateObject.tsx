@@ -1,12 +1,10 @@
 import React from "react";
-import { useShowAndClose } from "../../../../shared/hooks";
+import { useShowAndClose, useString } from "../../../../shared/hooks";
 import { ButtonForModals, ModalUi } from "../../../../shared/ui";
 import BodyCreateObject from "./BodyCreateObject";
 
 interface CreateObjectsProps {
     handleAction: () => void;
-    name: string;
-    address: string;
 }
 
 const CreateObject: React.FC<CreateObjectsProps> = ({ handleAction }) => {
@@ -17,7 +15,7 @@ const CreateObject: React.FC<CreateObjectsProps> = ({ handleAction }) => {
             <ButtonForModals title="Создать" handleShow={handleShow} />
             <ModalUi
                 handleClose={handleClose}
-                title="Создать"
+                title="Создать объект"
                 show={show}
                 handleAction={handleAction}
             >

@@ -13,6 +13,8 @@ import {
     RowUserDescription,
 } from "./admin";
 
+import { CreateObject } from "./managment";
+
 export {
     NavbarAskue,
     LoadingSpin,
@@ -26,3 +28,4 @@ export {
     RowUser,
     RowUserDescription,
 };
+export { CreateObject };

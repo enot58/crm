@@ -28,7 +28,7 @@ export const api = createApi({
     endpoints: () => ({}),
 });
 
-export const objects = createApi({
+export const objectsMainApi = createApi({
     reducerPath: "objects",
     tagTypes: ["Objects"],
     baseQuery: baseQueryWithRetry,

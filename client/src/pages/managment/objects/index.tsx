@@ -1,7 +1,8 @@
 import React from "react";
+import { Objects } from "../../../features";
 
 const ObjectsMain = () => {
-    return <div>ObjectsMain</div>;
+    return <Objects />;
 };
 
 export default ObjectsMain;

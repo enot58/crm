@@ -4,6 +4,7 @@ import NavbarAskueFeaters from "./navbar/NavbarAskueFeaters";
 import LeftMenuAdmin from "./leftMenu/LeftMenuAdmin";
 import LeftMenuManager from "./leftMenu/LeftMenuManager";
 import { UsersAdminFeatures, OneUserForm } from "./admin";
+import { Objects } from "./managment";
 
 export {
     RequireAuth,
@@ -13,4 +14,5 @@ export {
     UsersAdminFeatures,
     OneUserForm,
     LeftMenuManager,
+    Objects,
 };
