@@ -1,6 +1,7 @@
 import React from "react";
 import NavLinkAskue from "./NavLinkAskue";
 import { IRole, INavLinkAskueProps } from "../../../shared/interfaces";
+import { Col } from "react-bootstrap";
 
 interface INavAskue {
     configData: INavLinkAskueProps[];
@@ -10,13 +11,14 @@ interface INavAskue {
 const NavAskue: React.FC<INavAskue> = ({ configData, roles }) => {
     return (
         <>
-            {configData.map((item) => (
-                <NavLinkAskue
-                    key={item.to}
-                    {...item}
-                    accessFor={item.accessFor}
-                    roles={roles}
-                />
+            {configData.map((item, index) => (
+                <Col md={"auto"} sm={6} key={item.to}>
+                    <NavLinkAskue
+                        {...item}
+                        accessFor={item.accessFor}
+                        roles={roles}
+                    />
+                </Col>
             ))}
         </>
     );
