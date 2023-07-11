@@ -8,6 +8,7 @@ const Layout: React.FC = () => {
     return (
         <>
             <NavbarAskueFeaters configData={configNav} />
+
             <Container fluid={true}>
                 <Outlet />
             </Container>

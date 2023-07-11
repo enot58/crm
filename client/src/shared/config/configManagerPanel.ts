@@ -18,7 +18,7 @@ const configManagerPanel: IConfigAdmin[] = [
     {
         title: "Заявки",
         action: true,
-        to: "createCounting",
+        to: "createCountin",
         disabled: false,
         variant: "info",
     },
@@ -32,21 +32,21 @@ const configManagerPanel: IConfigAdmin[] = [
     {
         title: "Склады",
         action: true,
-        to: "sub",
+        to: "subs",
         disabled: false,
         variant: "info",
     },
     {
         title: "Товар",
         action: true,
-        to: "sub",
+        to: "subss",
         disabled: false,
         variant: "info",
     },
     {
         title: "Траспортные компании",
         action: true,
-        to: "sub",
+        to: "subsss",
         disabled: false,
         variant: "info",
     },
