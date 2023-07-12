@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Alert, Card, Container, Form } from "react-bootstrap";
+import { Form, Input, Button } from "antd";
+//import { Alert, Card, Container, Form } from "react-bootstrap";
 import { ButtonUI, InputString } from "../../shared/ui";
 import { IInputStringProps } from "../../shared/interfaces";
 import { LoadingSpin } from "../../entities";
@@ -8,6 +9,7 @@ import { authApi, useLoginMutation } from "../../shared/api";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
 import { useAppSelector } from "../../shared/hooks";
+import { AuthLogin } from "../../features";
 
 const useLogin = () => {
     const [login, setLogin] = useState("");
@@ -35,32 +37,25 @@ const usePassword = () => {
 const AuthWidget: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const [login, loginProps] = useLogin();
-    const [password, passwordProps] = usePassword();
+    const [form] = Form.useForm();
+    const values = Form.useWatch([], form);
+
     // Получим статус и ошибку
-    const { isError, dataError } = useAppSelector((store) => store.user);
+    const { isError, dataError, isAuth } = useAppSelector(
+        (store) => store.user
+    );
+    if (isAuth) {
+        navigate(location.state?.from || "/", { replace: true });
+    }
 
     const userData = {
-        login,
-        password,
+        login: values === undefined ? "" : values.login,
+        password: values === undefined ? "" : values.password,
     };
 
     const [loginMutation, { isLoading }] = useLoginMutation();
     const { isLoading: isCheckLoading, data } = authApi.useCheckQuery();
     const { user } = useAppSelector((store) => store.user);
-    const handleSubmit = (
-        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ) => {
-        e.preventDefault();
-        try {
-            const login = loginMutation(userData);
-            if (login && user !== null) {
-                navigate(location.state?.from || "/", { replace: true });
-            }
-        } catch (e) {
-            console.error(e);
-        }
-    };
 
     if (isLoading || isCheckLoading) {
         return <LoadingSpin variant={LoadingVariant.INFO} />;
@@ -69,33 +64,37 @@ const AuthWidget: React.FC = () => {
         navigate("/", { replace: true });
     }
 
+    const onFinish = (e: any) => {
+        //e.preventDefault();
+        try {
+            const login = loginMutation(userData);
+
+            if (login && user !== null) {
+                navigate(location.state?.from || "/", { replace: true });
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
     return (
-        <Container
-            className="d-flex justify-content-center align-items-center"
-            style={{ height: window.innerHeight - 54 }}
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh",
+            }}
         >
-            <Card style={{ width: "600px" }}>
-                <Form className="m-5 d-flex justify-content-center flex-column">
-                    <h2>Авторизация</h2>
-                    <InputString {...loginProps} />
-                    <InputString {...passwordProps} />
-                    <ButtonUI
-                        variant="success"
-                        onClick={(
-                            e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                        ) => handleSubmit(e)}
-                        label="Вход"
-                    />
-                    {isError && dataError.data ? (
-                        <Alert className="text-center mt-3" variant={"danger"}>
-                            {dataError.data.message}
-                        </Alert>
-                    ) : (
-                        <></>
-                    )}
-                </Form>
-            </Card>
-        </Container>
+            <AuthLogin
+                form={form}
+                onFinish={onFinish}
+                isError={isError}
+                messageError={
+                    dataError && dataError.data ? dataError.data.message : ""
+                }
+            />
+        </div>
     );
 };
 

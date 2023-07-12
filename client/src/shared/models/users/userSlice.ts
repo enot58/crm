@@ -45,6 +45,8 @@ export const userSlice = createSlice({
                 state.isAuth = true;
                 state.isLoading = false;
                 state.token = token;
+                state.isError = false;
+                state.dataError = null;
             }
         );
         builder.addMatcher(
